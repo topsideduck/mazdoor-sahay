@@ -44,3 +44,11 @@ stories:
   - action: action_did_that_help
   - intent: affirm
   - action: action_happy
+
+- story: Available jobs
+  steps:
+  - intent: get_job
+  - action: action_get_job
+  - action: action_did_that_help
+  - intent: affirm
+  - action: action_happy

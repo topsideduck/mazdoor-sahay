@@ -12,9 +12,10 @@ import mysql.connector
 import requests
 
 from colorama import Fore, Style
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 from waitress import serve
+
 
 app = Flask(__name__)
 CORS(app)
@@ -458,6 +459,7 @@ def GetJobs():
                                       (float(Location['lat']), float(Location['long'])))
         if (dist <= int(request.form['radius'])):
             result.append(json.dumps(x))
+
     return json.dumps(result)
 
 

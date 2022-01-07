@@ -109,3 +109,29 @@ nlu:
     - about
     - what is this
     - what is mazdoor sahay
+
+- intent: get_job
+  examples: |
+    - show available jobs near [Mumbai](location)
+    - available jobs at [Kolkata](location)
+    - jobs available in [Delhi](location)
+    - i need available jobs from [Chennai](location)
+    - jobs please of [Bangalore](location)
+    
+- lookup: location
+  examples: |
+    - Mumbai
+    - Bangalore
+    - Chennai
+    - Kolkata
+    - Delhi
+    - Ahmedabad
+    - Hyderabad
+    - Surat
+    - Pune
+    - Jaipur
+    - Lucknow
+    - Kanpur
+    - Nagpur
+    - Indore
+    - Thane

@@ -10,6 +10,7 @@ intents:
   - bot_challenge
   - help
   - about
+  - get_job
 
 responses:
   utter_greet:
@@ -31,6 +32,9 @@ responses:
   utter_iamabot:
   - text: "I am a bot, made by Harikeshav."
 
+entities:
+  - location
+
 actions:
   - action_hello_world
   - action_greet
@@ -41,6 +45,7 @@ actions:
   - action_i_am_a_bot
   - action_help
   - action_about
+  - action_get_job
 
 session_config:
   session_expiration_time: 60

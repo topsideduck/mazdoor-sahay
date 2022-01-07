@@ -1,0 +1,6 @@
+[
+  {
+    "name": "location",
+    "pattern": "(\\bMumbai\\b|\\bBangalore\\b|\\bChennai\\b|\\bKolkata\\b|\\bDelhi\\b|\\bAhmedabad\\b|\\bHyderabad\\b|\\bSurat\\b|\\bPune\\b|\\bJaipur\\b|\\bLucknow\\b|\\bKanpur\\b|\\bNagpur\\b|\\bIndore\\b|\\bThane\\b)"
+  }
+]
