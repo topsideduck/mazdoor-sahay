@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import logging
 
 from colorama import Fore, Style
@@ -55,8 +57,8 @@ logger.addHandler(f_handler)
 @app.after_request
 def log(response):
     # info = str(request.environ['HTTP_X_FORWARDED_FOR']) + "==" + str(request.endpoint) + "==" + str(response.status)
-    info = f"{str(request.environ['HTTP_X_FORWARDED_FOR'])} {str(request.endpoint)} {str(response.status)}"
-    logging.info(info)
+    # info = f"{str(request.environ['HTTP_X_FORWARDED_FOR'])} {str(request.endpoint)} {str(response.status)}"
+    # logging.info(info)
     return response
 
 
@@ -71,4 +73,4 @@ def donation():
 
 
 if __name__ == "__main__":
-    serve(app, host='0.0.0.0', port=5000)
+    serve(app, host='0.0.0.0', port=5001)
