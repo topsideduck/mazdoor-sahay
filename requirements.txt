@@ -1,0 +1,7 @@
+colorama
+flask
+flask-cors
+mysql-connector-python
+rasa
+requests
+waitress
