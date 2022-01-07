@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>Donation</title>
+    </head>
+    <body>
+        <noscript>You need javascript to run!</noscript>
+        <h1>Add</h1>
+        <input id="title" type="text" placeholder="Title"><br/><br/>
+        <input id="description" type="text" placeholder="Description" style="width:100vw; height:30vh;"><br/><br/>
+        <input id="type" type="text" placeholder="Type"><br/><br/><br/>
+        <input id="target" type="text" placeholder="Target"><br/><br/>
+        <button id="loginBtn">Add</button>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+              function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+        $(document).ready(function(){
+         if(getCookie('login') != "true")
+         {
+           window.location.href = "https://adminControl.leomessi0311.repl.co/Login"
+         }
+        });
+            $('#loginBtn').click(function(){
+                $.post('https://ServerSustainathon.leomessi0311.repl.co/AddDonation', 
+                {
+                  id:getCookie('userid'),
+                  title:document.getElementById('title').value,
+                  type:document.getElementById('type').value,
+                  target:document.getElementById('target').value,
+                  description:document.getElementById('description').value,
+                }
+                , function(data, status){
+                  swal('added!')
+                })
+            })
+        </script>
+    </body>
+</html>
