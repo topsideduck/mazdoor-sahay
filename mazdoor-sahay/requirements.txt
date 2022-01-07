@@ -1,6 +1,7 @@
 colorama
 flask
 flask-cors
+mpu
 mysql-connector-python
 rasa
 requests

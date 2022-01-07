@@ -7,6 +7,7 @@ import os
 
 from random import randint
 
+import mpu
 import mysql.connector
 import requests
 
@@ -440,6 +441,26 @@ def GetDonations():
     return json.dumps(myresult)
 
 
+@app.route('/GetJobs', methods=['POST'])
+def GetJobs():
+    mydb = mysql.connector.connect(host=os.environ['host'],
+                                   user=os.environ['user'],
+                                   password=os.environ['pass'],
+                                   database=os.environ['db'])
+    mycursor = mydb.cursor()
+    mycursor.execute("SELECT * FROM jobs")
+    result = []
+    myresult = mycursor.fetchall()
+    for x in myresult:
+        print(x[2])
+        Location = json.loads(x[2])
+        dist = mpu.haversine_distance((float(request.form['lat']), float(request.form['long'])),
+                                      (float(Location['lat']), float(Location['long'])))
+        if (dist <= int(request.form['radius'])):
+            result.append(json.dumps(x))
+    return json.dumps(result)
+
+
 @app.route('/UpdateDonations', methods=['POST'])
 def UpdateDonations():
     mydb = mysql.connector.connect(host=os.environ['host'],
@@ -456,6 +477,28 @@ def UpdateDonations():
     mycursor.execute(sql, val)
     mydb.commit()
     return 'success', 200
+
+
+@app.route('/AddJob', methods=['POST'])
+def AddJob():
+    mydb = mysql.connector.connect(host=os.environ['host'],
+                                   user=os.environ['user'],
+                                   password=os.environ['pass'],
+                                   database=os.environ['db'])
+    sql = "INSERT INTO jobs (Title, Description, Location, Days, Pay,  JobID) VALUES (%s, %s, %s, %s, %s, %s)"
+    Location = {
+        "location": request.form['location'],
+        "lat": request.form['lat'],
+        "long": request.form['long'],
+
+    }
+    Id = hashlib.sha256((request.form['id']).encode()).hexdigest()
+    val = (
+    request.form['title'], request.form['desc'], json.dumps(Location), request.form['days'], request.form['pay'], Id)
+    mycursor = mydb.cursor()
+    mycursor.execute(sql, val)
+    mydb.commit()
+    return "success", 200
 
 
 if __name__ == "__main__":
