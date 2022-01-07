@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+     <!-- CSS -->
+     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+     <style>
+         :root {
+    --clr1: #222327;
+    --clr2: #c0c0c0;
+    --indicator_height: 9.749303621169917vh;
+    --indicator_width: 10.724233983286908vh;
+}
+.pfp {
+    border-radius: 7.8125vw;
+    padding: 0.52083333333333vw;
+}
+.profile_details {
+    text-align: left;
+    align-self: center;
+    font-size: 2.5vh;
+}
+.icon_size {
+    padding-top:1.5vh;
+    font-size: 5vh;
+}
+
+.navbar ul li  {
+    position: relative;
+    list-style: none;
+    width: 10vw;
+    height: 9vh;
+    z-index: 1;
+}
+.navbar ul li a {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+    color: var(--clr1);
+    text-decoration: none;
+}
+.navbar ul li a .icon {
+    padding-top:1.5vh;
+    position: relative;
+    display: block;
+    line-height: 6.2674094707520895vh;
+    font-size: 3.3426183844011144vh;
+    text-align: center;
+    transition: 0.5s;
+    color: var(--clr1);
+
+}
+.navbar ul li:hover a .icon {
+    transform: translateY(2.5vh);
+}
+.navbar ul li a .text {
+    position: absolute;
+    color: var(--clr1);
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 2.3vh;
+    letter-spacing: 0.11142061281337047vh;
+    transition: 0.75s;
+    opacity: 0;
+
+}
+.navbar ul li:hover a .text{
+    transform: translateY(-1.1vh);
+    opacity: 1;
+}
+.menu-border {
+    padding: 0.6963788300835655vh;
+}
+
+.card {
+    box-shadow: 0 0.5571030640668524vh 0.5208333333333334vw 0 #242424;
+    max-width: 50vh;
+    margin: auto;
+    text-align: center;
+    position: relative;
+}
+         :root {
+            --clr1: #222327;
+            --clr2: #c0c0c0;
+            --indicator_height: 9.749303621169917vh;
+            --indicator_width: 10.724233983286908vw;
+        }
+
+        .chat-message {
+            background-color: #3d3d3d;
+            border-radius: 4vh;
+            color: #f5f5f5;
+            min-height: 15vh;
+            min-width: 40vw;
+            justify-content: center;
+            padding-top: 3.5vh;
+            padding-left: 2vw         
+        }
+
+        .chat-message .pfp {
+            width: 69.12px;
+            border-radius: 50%;
+            justify-content: center;
+            align-self: center;
+            border-color: var(--clr2);
+            color: var(--clr1);
+            image-rendering: optimizeSpeed; 
+        }
+
+        .chat-message .msgAuthor {
+            margin-bottom: none;
+        }
+
+        .chat-message .msgAuthor .userName {
+            font-size: 5vh;
+            text-decoration: none;
+            color: var(--clr2);
+            justify-content: right;
+        }
+
+        .chat-message .msgAuthor .userName:hover {
+            color: #00ffaa;
+            text-decoration: underline;
+        }
+
+
+        .chat-message .text-msg {
+            align-self: center;
+            text-align: left;
+            padding: 0vh 3vw 4vh 4vw;
+            color: var(--clr2);
+            font-size: 2.785515320334262vh;
+            max-width:80vw;
+            overflow-wrap: break-word;
+        }
+
+        .userPost {
+            text-align: right;
+        }
+        
+        .userPost button {
+            transition: 0.5s;
+            color: #ffffff;
+            background-color: #3939ba;
+            border-radius: 2.1vh;
+            border: none;
+        }
+
+        .userPost button:hover {
+            transition: 0.5s;
+            opacity: 0.85;
+
+        }
+
+        .userPost button a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        .userPost button a ion-icon {
+            font-size: 5vh;
+            padding: 1vh 0vw 0vh 0vw;
+        }
+
+        .newPost .textInput .userPostArea {
+            border-color: var(--clr2);
+            border-radius: 2.1vh;
+            background-color: var(--clr1);
+            color: #ffffff;
+            padding: 0.6963788300835655vh 0.3255208333333333vw 0.6963788300835655vh 0.3255208333333333vw;
+            white-space: pre-wrap;
+        }
+
+        .newPost .textInput .submitBtn {
+            height: 5vh;
+            width: 5vw;
+            border: none;
+            border-radius: 1vh;
+            border-color: var(--clr1);
+            color: #ffffff;
+            background-color: #3939ba;
+            text-align: center;
+        }
+
+        .newPost .textInput .submitBtn:hover {
+            transition: 0.5s;
+            opacity: 0.85;
+        }
+
+        .newPost .textInput .submitBtn a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        /* navbar Bar */
+
+        :root {
+            --clr1: #222327;
+            --clr2: #c0c0c0;
+            --indicator_height: 9.749303621169917vh;
+            --indicator_width: 10.724233983286908vh;
+        }
+
+        .pfp {
+            border-radius: 7.8125vw;
+            padding: 0.52083333333333vw;
+        }
+
+        .profile_details {
+            text-align: left;
+            align-self: center;
+            font-size: 2.5vh;
+        }
+
+        hr.solid {
+            border-top: 0.4178272980501393vh solid #5c5c5c;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: var(--clr1);
+            overflow-x: hidden;
+            padding-top: 8.356545961002785vh;
+            transition: 0.5s;
+            border-top-right-radius: 2.0891364902506964vh;
+            border-bottom-right-radius: 2.0891364902506964vh;
+        }
+
+        .sidenav a {
+            padding: 1.1142061281337048vh 0.5208333333333334vw 1.1142061281337048vh 2.0833333333333335vw;
+            text-decoration: none;
+            font-size: 3.5vh;
+            color: var(--clr2);
+            display: block;
+            transition: 0.3s;
+            align-self: center;
+        }
+        
+        .sidenav a:hover:not(.closebtn) {
+            box-sizing: content-box;
+            background-color: var(--clr2);
+            color: var(--clr1);
+            border-radius: 2.1vh;
+            transition: 0.25s;
+        }
+
+        .sidenav .closebtn:hover {
+            color: #FE7D6E;
+            transition: 0.5s;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 1.6276041666666667vw;
+            font-size: 4.25vh;
+            margin-left: 2.25vw;
+        }
+
+         .postOptions {
+            transition: 0.5s;
+            text-decoration: none;
+            color: var(--clr2);
+            align-self: right;
+            font-size: 5vh;
+            padding-right: 2vw;
+            float: right;
+        }
+
+        .postOptions:hover {
+            transition: 0.5;
+            color: #00a2ff;
+        }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 9.749303621169917vh 7.128309572301426vw 9.749303621169917vh 7.128309572301426vw;
+            max-width:100vw;
+        }
+
+        @media screen and (max-width: 768px) {
+
+            .chat-message {
+                padding-top: 1.5vh;
+            }
+
+            .chat-message .msgAuthor .userName {
+                font-size: 3.5vh;
+                margin-left: 1vw;
+            }
+
+            .chat-message .msgAuthor .pfp {
+                width: 15vw;
+                margin-bottom: 2vh;
+            }
+
+            .chat-message .postOptions {
+                margin: 0.25vh 1vw 0vh 1vw;
+            }
+
+            .chat-message .text-msg {
+                font-size: 2.5vh;
+            }
+
+            .userPost button {
+                width: 12vw;
+            }
+        }
+     </style>
+     <!-- Code -->
+ 
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        <title>Community</title>
+    </head>
+    <body style="height: 100vh;max-width:100vw">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+       
+        
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding-top: 1.0445682451253482vh;">
+                <div class="container-fluid">
+                    <a class="navbar-brand"><span class="icon_size">Menu</span></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">                  
+                        <li id="navitem3" style="transition: 0.5s" class="nav-item rounded-pill">
+                            <a href="CommunityPage.html">
+                                <span id="icon3" class="icon"><ion-icon name="people"></ion-icon></span>
+                                <span id="text3" class="text"><b>Community</b></span>
+                            </a>
+                        </li>
+                        <li id="navitem4" style="transition: 0.5s" class="nav-item rounded-pill">
+                            <a href="CommunityPage.html">
+                                <span id="icon4" class="icon"><ion-icon name="briefcase"></ion-icon></ion-icon></span>
+                                <span id="text4" class="text"><b>Jobs</b></span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="nav-item d-flex my-2 my-lg-0">
+                        <div class="loginornot" style="display: block;">
+                            <button class="btn btn-primary me-sm-2" style="color:white" >Login</button>
+                            <button class="btn btn-outline-primary my-2 my-sm-0" >Register</button>
+                        </div>         
+                    </div>
+                </nav>
+                <span onclick="openNav()"><ion-icon name="apps" class="icon_size"></ion-icon></span>
+                <!-- Navbar End-->
+                <div id="main">
+                    <div id="content" class="container-fluid align-middle">
+                        <div class="userPost">
+                            <button type="button">
+                                <a href="CreatePost">
+                                    <ion-icon name="add"></ion-icon><b></b>
+                                </a>
+                            </button>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+         <!-- Navbar Start-->            
+         <div id="realSideNav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><ion-icon name="close-circle"></ion-icon></a>
+            <a href="#" class="link1"><b><ion-icon name="information-circle"></ion-icon> About</b></a>
+            <a href="#" class="link2"><b><ion-icon name="person-circle" class="myIcon"></ion-icon> My Account</b></a>
+            <a href="#" class="link4"><b><ion-icon name="briefcase" class="myIcon"></ion-icon> Job Updates</b></a>
+            <hr class="solid">
+            <a href="#"><b><ion-icon name="log-out-outline" class="myIcon"></ion-icon> Logout</b></a>
+        </div>
+    <!-- Navbar End-->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+            var PostData = "";
+            var PostContentData = "";
+            $(document).ready(function(){
+                $.get('https://ServerSustainathon.leomessi0311.repl.co/GetPosts', function(data, status){
+                  PostData = JSON.parse(data)
+                  for(var i = 0; i < PostData.length; i++)
+                  {
+                    PostContentData = JSON.parse(PostData[i][1])
+                          var NameChar = PostContentData["CreatorName"].split(" ");
+                        var NameShort = ""
+                        for(let i = 0; i < NameChar.length; ++i)
+                        {
+                          NameShort = NameShort + NameChar[i][0]
+                        }
+                    document.getElementById('content').innerHTML += "<div class='chat-message'><b class='msgAuthor'><img class='pfp' src='https://via.placeholder.com/150/0000FF/FFFFFF?text=" + NameShort + "' alt='pfp'><a href='https://Sustainathon.leomessi0311.repl.co/Profile?id=" +PostContentData["CreatorID"] +"' class='userName'>" +PostContentData["CreatorName"] + "</a></b><a href='https://Sustainathon.leomessi0311.repl.co/ViewPost?id=" + PostData[i][0]+ "' class='postOptions'><b><ion-icon name='ellipsis-vertical-circle'></ion-icon></b></a><div class='text-msg'>" + PostContentData['content'] + "</div></div><br/><br/>"
+                  }
+                });
+            })
+            $("#link1").hover(function(){
+                console.log($(".navbar").css("background-color"))
+                $(this).css("background-color", "#818181")
+                $('#icon1').css("color", "rgb(248, 249, 250)")
+                $('#text1').css("color", "rgb(248, 249, 250)")
+            }, function(){
+                $(this).css("background-color", "rgb(248, 249, 250)")
+                $('#icon1').css("color", "#000000")
+                $('#text1').css("color", "#818181")
+            })
+            $("#link2").hover(function(){
+                console.log($(".navbar").css("background-color"))
+                $(this).css("background-color", "#818181")
+                $('#icon2').css("color", "rgb(248, 249, 250)")
+                $('#text2').css("color", "rgb(248, 249, 250)")
+            }, function(){
+                $(this).css("background-color", "rgb(248, 249, 250)")
+                $('#icon2').css("color", "#000000")
+                $('#text2').css("color", "#818181")
+            })
+            $("#link3").hover(function(){
+                console.log($(".navbar").css("background-color"))
+                $(this).css("background-color", "#818181")
+                $('#icon3').css("color", "rgb(248, 249, 250)")
+                $('#text3').css("color", "rgb(248, 249, 250)")
+            }, function(){
+                $(this).css("background-color", "rgb(248, 249, 250)")
+                $('#icon3').css("color", "#000000")
+                $('#text3').css("color", "#818181")
+            })
+            $("#link4").hover(function(){
+                console.log($(".navbar").css("background-color"))
+                $(this).css("background-color", "#818181")
+                $('#icon4').css("color", "rgb(248, 249, 250)")
+                $('#text4').css("color", "rgb(248, 249, 250)")
+            }, function(){
+                $(this).css("background-color", "rgb(248, 249, 250)")
+                $('#icon4').css("color", "#000000")
+                $('#text4').css("color", "#818181")
+            })
+            $("#link5").hover(function(){
+                console.log($(".navbar").css("background-color"))
+                $(this).css("background-color", "#818181")
+                $('#icon4').css("color", "rgb(248, 249, 250)")
+                $('#text4').css("color", "rgb(248, 249, 250)")
+            }, function(){
+                $(this).css("background-color", "rgb(248, 249, 250)")
+                $('#icon4').css("color", "#000000")
+                $('#text4').css("color", "#818181")
+            })
+            $("#link6").hover(function(){
+                console.log($(".navbar").css("background-color"))
+                $(this).css("background-color", "#818181")
+                $('#icon4').css("color", "rgb(248, 249, 250)")
+                $('#text4').css("color", "rgb(248, 249, 250)")
+            }, function(){
+                $(this).css("background-color", "rgb(248, 249, 250)")
+                $('#icon4').css("color", "#000000")
+                $('#text4').css("color", "#818181")
+            })
+        </script>
+        <script>
+            $("#navitem1").hover(function(){
+                $(this).css("background-color", "#818181")
+                $('#icon1').css("color", "rgb(248, 249, 250)")
+                $('#text1').css("color", "rgb(248, 249, 250)")
+            }, function(){
+                $(this).css("background-color", "rgb(248, 249, 250)")
+                $('#icon1').css("color", "#000000")
+                $('#text1').css("color", "#818181")
+            })
+            $("#navitem2").hover(function(){
+                $(this).css("background-color", "#818181")
+                $('#icon2').css("color", "rgb(248, 249, 250)")
+                $('#text2').css("color", "rgb(248, 249, 250)")
+            }, function(){
+                $(this).css("background-color", "rgb(248, 249, 250)")
+                $('#icon2').css("color", "#000000")
+                $('#text2').css("color", "#818181")
+            })
+            $("#navitem3").hover(function(){
+                $(this).css("background-color", "#818181")
+                $('#icon3').css("color", "rgb(248, 249, 250)")
+                $('#text3').css("color", "rgb(248, 249, 250)")
+            }, function(){
+                $(this).css("background-color", "rgb(248, 249, 250)")
+                $('#icon3').css("color", "#000000")
+                $('#text3').css("color", "#818181")
+            })
+            $("#navitem4").hover(function(){
+                $(this).css("background-color", "#818181")
+                $('#icon4').css("color", "rgb(248, 249, 250)")
+                $('#text4').css("color", "rgb(248, 249, 250)")
+            }, function(){
+                $(this).css("background-color", "rgb(248, 249, 250)")
+                $('#icon4').css("color", "#000000")
+                $('#text4').css("color", "#818181")
+            })
+            $("#navitem5").hover(function(){
+                $(this).css("background-color", "#818181")
+                $('#icon5').css("color", "rgb(248, 249, 250)")
+                $('#text5').css("color", "rgb(248, 249, 250)")
+            }, function(){
+                $(this).css("background-color", "rgb(248, 249, 250)")
+                $('#icon5').css("color", "#000000")
+                $('#text5').css("color", "#818181")
+            })
+        </script>
+        <script>
+            function openNav() {
+                document.getElementById("realSideNav").style.width = "30vh";
+                document.getElementById("main").style.marginLeft = "16.276041666666668vw";
+                document.getElementById("main").style.opacity = "0.5";
+            }
+
+            function closeNav() {
+                document.getElementById("realSideNav").style.width = "0";
+                document.getElementById("main").style.marginLeft = "0";
+                document.getElementById("main").style.opacity = "1";
+            }
+        </script>
+    </body>
+</html>

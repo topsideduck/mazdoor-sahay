@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html>
+     <!-- CSS -->
+     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+     <style>
+         :root {
+            --clr1: #222327;
+            --clr2: #c0c0c0;
+            --indicator_height: 9.749303621169917vh;
+            --indicator_width: 10.724233983286908vw;
+        }
+
+        /* navbar Bar */
+
+        :root {
+            --clr1: #222327;
+            --clr2: #c0c0c0;
+            --indicator_height: 9.749303621169917vh;
+            --indicator_width: 10.724233983286908vh;
+        }
+
+        .pfp {
+            border-radius: 7.8125vw;
+            padding: 0.52083333333333vw;
+        }
+
+        .profile_details {
+            text-align: left;
+            align-self: center;
+            font-size: 2.5vh;
+        }
+
+        .icon_size {
+            padding-top:1.5vh;
+            padding-left: 0.65vw;
+            font-size: 10vh;
+        }
+
+        hr.solid {
+            border-top: 0.4178272980501393vh solid #5c5c5c;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: var(--clr1);
+            overflow-x: hidden;
+            padding-top: 8.356545961002785vh;
+            transition: 0.5s;
+            border-top-right-radius: 2.0891364902506964vh;
+            border-bottom-right-radius: 2.0891364902506964vh;
+        }
+
+        .sidenav a {
+            padding: 1.1142061281337048vh 0.5208333333333334vw 1.1142061281337048vh 2.0833333333333335vw;
+            text-decoration: none;
+            font-size: 3.5vh;
+            color: var(--clr2);
+            display: block;
+            transition: 0.3s;
+            align-self: center;
+        }
+        
+        .sidenav a:hover:not(.closebtn) {
+            box-sizing: content-box;
+            background-color: var(--clr2);
+            color: var(--clr1);
+            border-radius: 2.1vh;
+            transition: 0.25s;
+        }
+
+        .sidenav .closebtn:hover {
+            color: #FE7D6E;
+            transition: 0.5s;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 1.6276041666666667vw;
+            font-size: 4.25vh;
+            margin-left: 2.25vw;
+        }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 9.749303621169917vh 7.128309572301426vw 9.749303621169917vh 7.128309572301426vw;
+        }
+
+        @media screen and (max-height: 62.674094707520894vh) {
+            .sidenav {padding-top: 2.0891364902506964vh;}
+            .sidenav a {font-size: 2.5069637883008355vh;}
+        }
+        :root {
+    --clr1: #222327;
+    --clr2: #c0c0c0;
+    --indicator_height: 9.749303621169917vh;
+    --indicator_width: 10.724233983286908vh;
+}
+.pfp {
+    border-radius: 7.8125vw;
+    padding: 0.52083333333333vw;
+}
+.profile_details {
+    text-align: left;
+    align-self: center;
+    font-size: 2.5vh;
+}
+.icon_size {
+    padding-top:1.5vh;
+    font-size: 5vh;
+}
+
+.navbar ul li  {
+    position: relative;
+    list-style: none;
+    width: 10vw;
+    height: 9vh;
+    z-index: 1;
+}
+.navbar ul li a {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+    color: var(--clr1);
+    text-decoration: none;
+}
+.navbar ul li a .icon {
+    padding-top:1.5vh;
+    position: relative;
+    display: block;
+    line-height: 6.2674094707520895vh;
+    font-size: 3.3426183844011144vh;
+    text-align: center;
+    transition: 0.5s;
+    color: var(--clr1);
+
+}
+.navbar ul li:hover a .icon {
+    transform: translateY(2.5vh);
+}
+.navbar ul li a .text {
+    position: absolute;
+    color: var(--clr1);
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 2.3vh;
+    letter-spacing: 0.11142061281337047vh;
+    transition: 0.75s;
+    opacity: 0;
+
+}
+.navbar ul li:hover a .text{
+    transform: translateY(-1.1vh);
+    opacity: 1;
+}
+.menu-border {
+    padding: 0.6963788300835655vh;
+}
+
+.card {
+    box-shadow: 0 0.5571030640668524vh 0.5208333333333334vw 0 #242424;
+    max-width: 50vh;
+    margin: auto;
+    text-align: center;
+    position: relative;
+}
+  
+     </style>
+     <!-- Code -->
+ 
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        <title>My Account</title>
+    </head>
+    <body style="height: 100vh;">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+       
+        
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding-top: 1.0445682451253482vh;">
+                <div class="container-fluid">
+                    <a class="navbar-brand"><span class="icon_size">Menu</span></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">                  
+                        <li id="navitem3" style="transition: 0.5s" class="nav-item rounded-pill">
+                            <a href="CommunityPage.html">
+                                <span id="icon3" class="icon"><ion-icon name="people"></ion-icon></span>
+                                <span id="text3" class="text"><b>Community</b></span>
+                            </a>
+                        </li>
+                        <li id="navitem4" style="transition: 0.5s" class="nav-item rounded-pill">
+                            <a href="CommunityPage.html">
+                                <span id="icon4" class="icon"><ion-icon name="briefcase"></ion-icon></ion-icon></span>
+                                <span id="text4" class="text"><b>Jobs</b></span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="nav-item d-flex my-2 my-lg-0">
+                        <div class="loginornot" style="display: block;">
+                            <button class="btn btn-primary me-sm-2" style="color:white" >Login</button>
+                            <button class="btn btn-outline-primary my-2 my-sm-0" >Register</button>
+                        </div>         
+                    </div>
+                </nav>
+                <span onclick="openNav()"><ion-icon name="apps" class="icon_size"></ion-icon></span>
+                <!-- Navbar End-->
+                <div class="container-fluid align-middle" style="width: 50vh;">
+                    <p class="h1 text-center fw-bold">Profile</p>
+                    <div class="card">
+                        <br>
+                        <img id="pfp" 
+                        src="https://via.placeholder.com/150/FFFF00/FFFFFF?text=AM" alt="User's First Name" class="pfp"
+                        style=
+                        "width:150px; 
+                        image-rendering: optimizeSpeed; 
+                        background-color: var(--clr1);
+                        align-self: center;">
+                        <h1 id="user_name" style="align-self: center;">User's Name</h1>
+                        
+                        <div  class="profile_details">
+                            <p style="align-self:center" id="phoneP" class="title" style="font-size: 3vh;"><ion-icon name="call-outline" ></ion-icon><span id="PhoneText"></span><button id="PhoneNumber" style="background-color: white; border: none;">
+                                    <b>
+                                        <ion-icon name="pencil"></ion-icon>
+                                    </b>
+                                </button></p>
+                            <p style="align-self:center"><ion-icon name="location-outline"></ion-icon><span id="locationtext"> </span><button id="Location" style="background-color: white; border: none;">
+                                    <b>
+                                        <ion-icon name="pencil"></ion-icon>
+                                    </b>   
+                                </button></p>
+                            <p id='skillP' style="align-self:center"><ion-icon name="ribbon-outline" ></ion-icon> <span id="skilltext"> </span><button id="Skills" style="background-color: white; border: none;">
+                                    <b>
+                                        <ion-icon name="pencil"></ion-icon>
+                                    </b>
+                                </button></p>
+                            <p id="incomeP" style="align-self:center"><ion-icon name="cash-outline" ></ion-icon><span id="incometext"> </span><button id="Income" style="background-color: white; border: none;">
+                                    <b>
+                                        <ion-icon name="pencil"></ion-icon>
+                                    </b>
+                                </button></p>
+                            <br>
+                        </div>  
+                    </div>    
+                </div>
+      
+         <!-- Navbar Start-->            
+         <div id="realSideNav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><ion-icon name="close-circle"></ion-icon></a>
+            <a href="#" class="link1"><b><ion-icon name="information-circle"></ion-icon> About</b></a>
+            <a href="#" class="link2"><b><ion-icon name="person-circle" class="myIcon"></ion-icon> My Account</b></a>
+            <a href="#" class="link4"><b><ion-icon name="briefcase" class="myIcon"></ion-icon> Job Updates</b></a>
+            <hr class="solid">
+            <a href="#"><b><ion-icon name="log-out-outline" class="myIcon"></ion-icon> Logout</b></a>
+        </div>
+    <!-- Navbar End-->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+              function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+          $(document).ready(function(){
+            $.post('https://ServerSustainathon.leomessi0311.repl.co/ValidateLoginCookie', {"loginid":getCookie('login')}, function(data, status){
+                if(data!="Valid Cookie")
+                {
+                  window.location.href= 'https://Sustainathon.leomessi0311.repl.co/Login'
+                }
+            });
+            $.get('https://serversustainathon.leomessi0311.repl.co/GetUserData/' + getCookie('userid'), function(data, status){
+                        userData = JSON.parse(data)
+                        
+                        if(userData[0] == "Contractor")
+                        {
+                          document.getElementById('skillP').style.display = "none";
+                          document.getElementById('incomeP').style.display = "none";
+                        }
+                        var pref = JSON.parse(userData[5]) 
+                        document.getElementById('PhoneText').innerHTML = userData['4']
+                        const myArray =pref['location'].split(",");
+                        document.getElementById('locationtext').innerHTML = myArray[0]
+                        document.getElementById('skilltext').innerHTML = pref['skill']
+                        document.getElementById('incometext').innerHTML = pref['income']
+                        var NameChar = userData[1].split(" ");
+                        var NameShort = ""
+                        for(let i = 0; i < NameChar.length; ++i)
+                        {
+                          NameShort = NameShort + NameChar[i][0]
+                        }
+                        document.getElementById('pfp').src = "https://via.placeholder.com/150/0000FF/FFFFFF?text="+ NameShort
+                        document.getElementById('user_name').innerHTML = userData[1]
+                    });
+          })
+            $("#link1").hover(function(){
+                console.log($(".navbar").css("background-color"))
+                $(this).css("background-color", "#818181")
+                $('#icon1').css("color", "rgb(248, 249, 250)")
+                $('#text1').css("color", "rgb(248, 249, 250)")
+            }, function(){
+                $(this).css("background-color", "rgb(248, 249, 250)")
+                $('#icon1').css("color", "#000000")
+                $('#text1').css("color", "#818181")
+            })
+            $("#link2").hover(function(){
+                console.log($(".navbar").css("background-color"))
+                $(this).css("background-color", "#818181")
+                $('#icon2').css("color", "rgb(248, 249, 250)")
+                $('#text2').css("color", "rgb(248, 249, 250)")
+            }, function(){
+                $(this).css("background-color", "rgb(248, 249, 250)")
+                $('#icon2').css("color", "#000000")
+                $('#text2').css("color", "#818181")
+            })
+            $("#link3").hover(function(){
+                console.log($(".navbar").css("background-color"))
+                $(this).css("background-color", "#818181")
+                $('#icon3').css("color", "rgb(248, 249, 250)")
+                $('#text3').css("color", "rgb(248, 249, 250)")
+            }, function(){
+                $(this).css("background-color", "rgb(248, 249, 250)")
+                $('#icon3').css("color", "#000000")
+                $('#text3').css("color", "#818181")
+            })
+            $("#link4").hover(function(){
+                console.log($(".navbar").css("background-color"))
+                $(this).css("background-color", "#818181")
+                $('#icon4').css("color", "rgb(248, 249, 250)")
+                $('#text4').css("color", "rgb(248, 249, 250)")
+            }, function(){
+                $(this).css("background-color", "rgb(248, 249, 250)")
+                $('#icon4').css("color", "#000000")
+                $('#text4').css("color", "#818181")
+            })
+            $("#link5").hover(function(){
+                console.log($(".navbar").css("background-color"))
+                $(this).css("background-color", "#818181")
+                $('#icon4').css("color", "rgb(248, 249, 250)")
+                $('#text4').css("color", "rgb(248, 249, 250)")
+            }, function(){
+                $(this).css("background-color", "rgb(248, 249, 250)")
+                $('#icon4').css("color", "#000000")
+                $('#text4').css("color", "#818181")
+            })
+            $("#link6").hover(function(){
+                console.log($(".navbar").css("background-color"))
+                $(this).css("background-color", "#818181")
+                $('#icon4').css("color", "rgb(248, 249, 250)")
+                $('#text4').css("color", "rgb(248, 249, 250)")
+            }, function(){
+                $(this).css("background-color", "rgb(248, 249, 250)")
+                $('#icon4').css("color", "#000000")
+                $('#text4').css("color", "#818181")
+            })
+            function onlyDigits(s) {
+            for (let i = s.length - 1; i >= 0; i--) {
+                const d = s.charCodeAt(i);
+                if (d < 48 || d > 57) return false
+            }
+            return true
+            }
+            $("#navitem1").hover(function(){
+                $(this).css("background-color", "#818181")
+                $('#icon1').css("color", "rgb(248, 249, 250)")
+                $('#text1').css("color", "rgb(248, 249, 250)")
+            }, function(){
+                $(this).css("background-color", "rgb(248, 249, 250)")
+                $('#icon1').css("color", "#000000")
+                $('#text1').css("color", "#818181")
+            })
+            $("#navitem2").hover(function(){
+                $(this).css("background-color", "#818181")
+                $('#icon2').css("color", "rgb(248, 249, 250)")
+                $('#text2').css("color", "rgb(248, 249, 250)")
+            }, function(){
+                $(this).css("background-color", "rgb(248, 249, 250)")
+                $('#icon2').css("color", "#000000")
+                $('#text2').css("color", "#818181")
+            })
+            $("#navitem3").hover(function(){
+                $(this).css("background-color", "#818181")
+                $('#icon3').css("color", "rgb(248, 249, 250)")
+                $('#text3').css("color", "rgb(248, 249, 250)")
+            }, function(){
+                $(this).css("background-color", "rgb(248, 249, 250)")
+                $('#icon3').css("color", "#000000")
+                $('#text3').css("color", "#818181")
+            })
+            $("#navitem4").hover(function(){
+                $(this).css("background-color", "#818181")
+                $('#icon4').css("color", "rgb(248, 249, 250)")
+                $('#text4').css("color", "rgb(248, 249, 250)")
+            }, function(){
+                $(this).css("background-color", "rgb(248, 249, 250)")
+                $('#icon4').css("color", "#000000")
+                $('#text4').css("color", "#818181")
+            })
+            $("#navitem5").hover(function(){
+                $(this).css("background-color", "#818181")
+                $('#icon5').css("color", "rgb(248, 249, 250)")
+                $('#text5').css("color", "rgb(248, 249, 250)")
+            }, function(){
+                $(this).css("background-color", "rgb(248, 249, 250)")
+                $('#icon5').css("color", "#000000")
+                $('#text5').css("color", "#818181")
+            })
+            $('#PhoneNumber').click(function(){
+                swal("Enter new Phone Number:", {
+                    content: "input",
+                })
+                .then((value) => {  
+                    if(value == null)
+                    {
+                      swal({
+                        title: "Invalid Phone Number",
+                        icon: "warning",
+                      });
+                    }
+                    else
+                    {
+                      if(value.length!=10)
+                    {
+                        swal({
+                        title: "Invalid Phone Number",
+                        icon: "warning",
+                    })
+                    }
+                    else
+                    {
+                        if(!(onlyDigits(value)))
+                        {
+                            swal({
+                        title: "Invalid Phone Number",
+                        icon: "warning",
+                        })
+                        }
+                        else
+                        {
+                            swal({
+                            title: "Are you sure?",
+                            text: "Once chaged to "+value+", you wont be able to get it back!",
+                            icon: "warning",
+                            buttons: true,
+                            dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                             $.post('https://ServerSustainathon.leomessi0311.repl.co/ChangePhone', {
+                                "userid":getCookie('userid'),
+                                "phone":value,
+                              }, function(data, status){
+                                   swal({
+                                title: "Success",
+                                text:"Your Phone Number has been changed!",
+                                icon: "success",
+                            })
+                            .then((value2)=>{
+                               window.location.href = 'https://sustainathon.leomessi0311.repl.co/Account'
+                              });   
+                            })
+                            } else {
+                            swal("Your Phone Number hasnt been changed!");
+                        }
+                    });
+                        }
+                    }
+                    }
+                   
+                });
+            });
+            $('#Location').click(function(){
+                swal("Enter new Location:", {
+                    content: "input",
+                })
+                .then((value) => {
+                  if(value.length==0)
+                  {
+                    swal({
+                                title: "Please enter another location",
+                                icon: "warning",
+                  });
+                  }
+                  else
+                  {
+                       $.get("https://eu1.locationiq.com/v1/search.php?key=pk.314111a95af34b5db65280b276f03f3d&q=" + value+ "&format=json", function(data, status){
+                  var index = 0;
+                        for(var i = 0; i < data.length; i++)
+                        {
+                          if(data[i]['importance'] > data[index]['importance'])
+                          {
+                            index = i;
+                          }
+                        }
+
+                         $.post('https://ServerSustainathon.leomessi0311.repl.co/ChangeLocation', {
+                                "userid":getCookie('userid'),
+                                "lat":data[0]['lat'],
+                                "long":data[0]['lon'],
+                                "location":data[0]['display_name'],
+                              }, function(data, status){
+                                   swal({
+                                title: "Success",
+                                text:"Location successfully changed",
+                                icon: "success",
+                            })
+                            .then((value2)=>{
+                               window.location.href = 'https://sustainathon.leomessi0311.repl.co/Account'
+                              });   
+                            })
+                                                                 
+                })
+                .fail(function(reponse){
+                  swal({
+                                title: "Please enter another location",
+                                icon: "warning",
+                  });
+                });
+                  }
+              });
+            }); 
+
+            $('#Skills').click(function(){
+                swal("Enter a skill:", {
+                    content: "input",
+                })
+                .then((value) => {
+                    if(value.length==0)
+                    {
+                        swal({
+                        title: "Please enter something",
+                        icon: "warning",
+                    })
+                    }
+                    else
+                    {
+                        swal({
+                            title: "Are you sure?",
+                            text: "Once chaged to "+value+", you wont be able to get it back!",
+                            icon: "warning",
+                            buttons: true,
+                            dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            $.post('https://ServerSustainathon.leomessi0311.repl.co/ChangeSkill', {
+                                "userid":getCookie('userid'),
+                                "skill":value,
+                              }, function(data, status){
+                                   swal({
+                                title: "Success",
+                                text:"Your Skill has been changed!",
+                                icon: "success",
+                            })
+                            .then((value2)=>{
+                               window.location.href = 'https://sustainathon.leomessi0311.repl.co/Account'
+                              });   
+                            })
+                            } else {
+                                swal("Your Skill hasnt been changed!");
+                            }
+                        });                     
+                    }
+                });
+            });
+            $('#Income').click(function(){
+                swal({
+                    title:"Please enter maximum requirement",
+                    content:"input",
+                })
+                .then((maxValue) => {
+                   if(maxValue.length==0)
+                   {
+                    swal({
+                        title: "Please enter something",
+                        icon: "warning",
+                    })
+                   }else
+                   {
+                       if(!onlyDigits(maxValue))
+                       {
+                        swal({
+                        title: "Invalid Income Requirement",
+                        icon: "warning",
+                        })
+                       }
+                       else
+                       {
+                            swal({
+                                title:"Please enter minimum requirement",
+                                content:"input",
+                            })
+                            .then((minValue) => {
+                                if(minValue.length==0)
+                                {
+                                    swal({
+                                        title: "Please enter something",
+                                        icon: "warning",
+                                    })
+                                } 
+                                else
+                                {
+                                    if(!onlyDigits(minValue))
+                                    {
+                                        swal({
+                                            title: "Invalid Income Requirement",
+                                            icon: "warning",
+                                        })
+                                    }
+                                    else
+                                    {
+                                        if(parseInt(minValue)>parseInt(maxValue))
+                                        {
+                                            swal({
+                                                title: "Minimum requirement can not be more than maximum requirement!",
+                                                icon: "warning",
+                                            })
+                                        }
+                                        else
+                                        {
+                                           $.post('https://ServerSustainathon.leomessi0311.repl.co/ChangeIncome', {
+                                "userid":getCookie('userid'),
+                                "income":maxValue+"-"+minValue,
+                              }, function(data, status){
+                                   swal({
+                                title: "Success",
+                                text:"Your Income Requirement has been changed!",
+                                icon: "success",
+                            })
+                            .then((value2)=>{
+                               window.location.href = 'https://sustainathon.leomessi0311.repl.co/Account'
+                              });   
+                            }) 
+                                        }
+                                    }
+                                }  
+                            });
+                        }
+                    
+                    }
+                });
+            });
+            function openNav() {
+                document.getElementById("realSideNav").style.width = "30vh";
+                document.getElementById("main").style.marginLeft = "16.276041666666668vw";
+                document.getElementById("main").style.opacity = "0.25";
+            }
+
+            function closeNav() {
+                document.getElementById("realSideNav").style.width = "0";
+                document.getElementById("main").style.marginLeft = "0";
+                document.getElementById("main").style.opacity = "1";
+            }
+        </script>
+
+    </body>
+</html>
