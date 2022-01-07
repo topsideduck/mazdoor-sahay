@@ -8,15 +8,13 @@ from random import randint
 import mysql.connector
 import requests
 
-from colorama import Fore, Style, init
+from colorama import Fore, Style
 from flask import Flask, request
 from flask_cors import CORS
 from waitress import serve
 
 app = Flask(__name__)
 CORS(app)
-
-init(autoreset=True)
 
 
 # Logger custom formatter
@@ -62,6 +60,14 @@ f_handler.setLevel(logging.DEBUG)
 f_handler.setFormatter(
     logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s (%(filename)s:%(lineno)d)"))
 logger.addHandler(f_handler)
+
+
+@app.after_request
+def Log(response):
+    # info = str(request.environ['HTTP_X_FORWARDED_FOR']) + "==" + str(request.endpoint) + "==" + str(response.status)
+    info = f"{str(request.environ['HTTP_X_FORWARDED_FOR'])} {str(request.endpoint)} {str(response.status)}"
+    logging.info(info)
+    return response
 
 
 @app.route('/PostRegisterContractor', methods=['POST'])
