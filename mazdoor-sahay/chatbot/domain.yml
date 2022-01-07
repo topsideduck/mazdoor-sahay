@@ -8,6 +8,8 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
+  - help
+  - about
 
 responses:
   utter_greet:
@@ -27,7 +29,18 @@ responses:
   - text: "Bye"
 
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  - text: "I am a bot, made by Harikeshav."
+
+actions:
+  - action_hello_world
+  - action_greet
+  - action_cheer_up
+  - action_did_that_help
+  - action_happy
+  - action_goodbye
+  - action_i_am_a_bot
+  - action_help
+  - action_about
 
 session_config:
   session_expiration_time: 60

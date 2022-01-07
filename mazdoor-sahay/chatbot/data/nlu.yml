@@ -89,3 +89,23 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+
+- intent: help
+  examples: |
+    - help me
+    - how to
+    - how to use this
+    - how to use this app
+    - how to use this website
+
+- intent: about
+  examples: |
+    - overview
+    - website overview
+    - what is this website about
+    - what is this website
+    - what is this about
+    - website about
+    - about
+    - what is this
+    - what is mazdoor sahay
