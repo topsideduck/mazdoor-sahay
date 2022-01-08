@@ -67,8 +67,8 @@ logger.addHandler(f_handler)
 
 @app.after_request
 def Log(response):
-    # info = str(request.environ['HTTP_X_FORWARDED_FOR']) + "==" + str(request.endpoint) + "==" + str(response.status)
-    info = f"{str(request.environ['HTTP_X_FORWARDED_FOR'])} {str(request.endpoint)} {str(response.status)}"
+    info = str(request.environ['HTTP_X_FORWARDED_FOR']) + "==" + str(request.endpoint) + "==" + str(response.status)
+    # info = f"{str(request.environ['HTTP_X_FORWARDED_FOR'])} {str(request.endpoint)} {str(response.status)}"
     logging.info(info)
     return response
 
@@ -459,6 +459,17 @@ def GetJobs():
         if (dist <= int(request.form['radius'])):
             result.append(json.dumps(x))
     return json.dumps(result)
+
+@app.route('/GetJobsAll')
+def GetJobsAll():
+    mydb = mysql.connector.connect(host=os.environ['host'],
+                                   user=os.environ['user'],
+                                   password=os.environ['pass'],
+                                   database=os.environ['db'])
+    mycursor = mydb.cursor()
+    mycursor.execute("SELECT * FROM jobs")
+    myresult = mycursor.fetchall()
+    return json.dumps(myresult)
 
 
 @app.route('/GetJobsWithId/<id>')

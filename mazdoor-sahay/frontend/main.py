@@ -59,8 +59,8 @@ logger.addHandler(f_handler)
 
 @app.after_request
 def Log(response):
-    # info = str(request.environ['HTTP_X_FORWARDED_FOR']) + "==" + str(request.endpoint) + "==" + str(response.status)
-    info = f"{str(request.environ['HTTP_X_FORWARDED_FOR'])} {str(request.endpoint)} {str(response.status)}"
+    info = str(request.environ['HTTP_X_FORWARDED_FOR']) + "==" + str(request.endpoint) + "==" + str(response.status)
+    # info = f"{str(request.environ['HTTP_X_FORWARDED_FOR'])} {str(request.endpoint)} {str(response.status)}"
     logging.info(info)
     return response
 
@@ -128,6 +128,11 @@ def ViewJob():
 @app.route('/JobUpdates')
 def JobUpdates():
     return render_template('JobUpdates.html')
+
+
+@app.route('/Logout')
+def Logout():
+    return render_template('Logout.html')
 
 
 if __name__ == "__main__":
