@@ -8,7 +8,6 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
-  - help
   - about
   - get_job
 
@@ -43,7 +42,6 @@ actions:
   - action_happy
   - action_goodbye
   - action_i_am_a_bot
-  - action_help
   - action_about
   - action_get_job
 

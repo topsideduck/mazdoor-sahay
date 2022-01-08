@@ -29,14 +29,6 @@ stories:
   - intent: deny
   - action: action_goodbye
 
-- story: Help
-  steps:
-  - intent: help
-  - action: action_help
-  - action: action_did_that_help
-  - intent: affirm
-  - action: action_happy
-
 - story: About
   steps:
   - intent: about

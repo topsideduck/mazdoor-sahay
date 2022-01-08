@@ -1,9 +1,8 @@
 from typing import Any, Text, Dict, List
 
 import json
+import re
 import requests
-import ssl
-from urllib.request import urlopen
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
@@ -115,21 +114,6 @@ class ActionIAmABot(Action):
         return []
 
 
-class ActionHelp(Action):
-    def name(self) -> Text:
-        return "action_help"
-
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        response: Text = "Welcome to Mazdoor Sahay! I will be guiding you on how to use this website."
-
-        dispatcher.utter_message(text=response)
-
-        return []
-
-
 class ActionAbout(Action):
     def name(self) -> Text:
         return "action_about"
@@ -139,11 +123,11 @@ class ActionAbout(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         response: Text = """
-About Mazdoor Sahay:
--> It is a customised, user-friendly and accessible website.
--> Deriving its inspiration from the 10th Sustainable development goal: Reduced inequalities, Mazdoor- Sahay strives to establish a platform through which migrant labourers get adequate job opportunities and safely voice out their concerns and distresses- knowing that they will be heard.
--> It will help form a connection between migrant laborers and contractors so as to reduce the time of unemployment and increase productivity. 
--> It gives an opportunity for the community involving charitable organisations, NGO heads, philanthropists, concerned and public-spirited citizens to play an active role in helping out the migrants in times of need.   
+About Mazdoor-Sahay:
+-> Mazdoor-Sahay is a platform that has been created with the intention to bolster connections and provide adequate job opportunities to migrant labourers and create a secure platform where they can safely voice out their concerns and distresses- knowing that they will be heard.
+-> Mazdoor-Sahay is a customised, user-friendly and accessible website.
+-> Mazdoor-Sahay also provides an opportunity for the community consisting of charitable organisations, NGO heads, philanthropists, concerned and public-spirited citizens who wish to play an active role in helping out the migrants in times of need.
+-> The creators of Mazdoor-Sahay strive to achieve the aims and ideals set forth to do their bit in the aid of India.
 """
         image: str = "https://cdn.discordapp.com/attachments/925686709490946059/929004933091557426/LOGO-1.png"
         dispatcher.utter_message(text=response, image=image)
@@ -161,11 +145,48 @@ class ActionGetJob(Action):
 
         location = next(tracker.get_latest_entity_values("location"), None)
 
-        url = "https://serversustainathon.leomessi0311.repl.co/GetJobs"
-        result = requests.post(url)
+        url = "https://serversustainathon.leomessi0311.repl.co/GetJobsAll"
+        jobs = requests.get(url).json()
 
-        data = result.json()
-        print(data)
-        dispatcher.utter_message(text=data)
+        required_job = []
+
+        for job in jobs:
+            if location in re.split("\s|(?<!\d)[,.](?!\d)", json.loads(job[2])['location']):
+                required_job = job
+            else:
+                required_job = None
+
+        if required_job is not None:
+            required_job_params = {
+                'name': required_job[0],
+                'description': required_job[1],
+                'location': json.loads(required_job[2])['location'],
+                'job_days': required_job[3],
+                'job_pay': required_job[4],
+                'job_id': required_job[5],
+                'contractor_name': required_job[6],
+                'contractor_user_id': required_job[7]
+            }
+
+        else:
+            required_job_params = None
+
+        if required_job_params is not None:
+            response = f"""
+Job found!
+
+Name: {required_job_params['name']}
+Description: {required_job_params['description']}
+Location: {required_job_params['location']}
+Job days: {required_job_params['job_days']} days
+Job pay: INR {required_job_params['job_pay']}
+Contractor name: {required_job_params['contractor_name']}
+Contractor profile: https://sustainathon.leomessi0311.repl.co/Profile?id={required_job_params['contractor_user_id']}
+Job post: https://sustainathon.leomessi0311.repl.co/ViewJob?id={required_job_params['job_id']}
+            """
+        else:
+            response = f"Could not find a job in {location}!"
+
+        dispatcher.utter_message(text=response)
 
         return []
