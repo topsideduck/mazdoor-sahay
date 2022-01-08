@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html>
-     <!-- CSS -->
-     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<!doctype html>
+<html lang="en">
+    <!-- CSS -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-     <style>
-         :root {
+    <style>
+                 :root {
             --clr1: #222327;
             --clr2: #c0c0c0;
             --indicator_height: 9.749303621169917vh;
@@ -66,7 +66,7 @@
             transition: 0.3s;
             align-self: center;
         }
-        
+
         .sidenav a:hover:not(.closebtn) {
             box-sizing: content-box;
             background-color: var(--clr2);
@@ -168,33 +168,6 @@
 .menu-border {
     padding: 0.6963788300835655vh;
 }
- .userPost {
-            text-align: right;
-        }
-        
-        .userPost button {
-            transition: 0.5s;
-            color: #ffffff;
-            background-color: #3939ba;
-            border-radius: 2.1vh;
-            border: none;
-        }
-
-        .userPost button:hover {
-            transition: 0.5s;
-            opacity: 0.85;
-
-        }
-
-        .userPost button a {
-            text-decoration: none;
-            color: #ffffff;
-        }
-
-        .userPost button a ion-icon {
-            font-size: 5vh;
-            padding: 1vh 0vw 0vh 0vw;
-        }
 
 .card {
     box-shadow: 0 0.5571030640668524vh 0.5208333333333334vw 0 #242424;
@@ -202,9 +175,74 @@
     margin: auto;
     text-align: center;
     position: relative;
-
 }
-  @media screen and (max-width: 50vw) {
+        :root {
+            --clr1: #222327;
+            --clr2: #c0c0c0;
+        }
+
+        hr.solid {
+            border-top: 0.4178272980501393vh solid #5c5c5c;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: var(--clr1);
+            overflow-x: hidden;
+            padding-top: 8.356545961002785vh;
+            transition: 0.5s;
+            border-top-right-radius: 2.0891364902506964vh;
+            border-bottom-right-radius: 2.0891364902506964vh;
+        }
+
+        .sidenav a {
+            padding: 1.1142061281337048vh 0.5208333333333334vw 1.1142061281337048vh 2.0833333333333335vw;
+            text-decoration: none;
+            font-size: 3.5vh;
+            color: var(--clr2);
+            display: block;
+            transition: 0.3s;
+            align-self: center;
+        }
+
+        .sidenav a:hover:not(.closebtn) {
+            box-sizing: content-box;
+            background-color: var(--clr2);
+            color: var(--clr1);
+            border-radius: 2.1vh;
+            transition: 0.25s;
+        }
+
+        .sidenav .closebtn:hover {
+            color: #FE7D6E;
+            transition: 0.5s;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 1.6276041666666667vw;
+            font-size: 4.25vh;
+            margin-left: 2.25vw;
+        }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 9.749303621169917vh 7.128309572301426vw 9.749303621169917vh 7.128309572301426vw;
+        }
+
+        .sidenavOpen {
+            border: none;
+            background-color: #ffffff;
+            padding: 0.01   vh 0vw 0vh vw;
+        }
+
+        @media screen and (max-width: 50vw) {
             .sidenav {
                 padding-top: 2.0891364902506964vh;
             }
@@ -218,19 +256,28 @@
         .jobCard {
             box-shadow: 0 0.5571030640668524vh 1.1142061281337048vh 0 rgba(0, 0, 0, 0.2);
             color: var(--clr2);
-            float: left;
+            float: none;
             background-color: var(--clr1);
-            height: 40vh;
-            width: 12vw;
+            height: 50vh;
+            width: 18vw;
             border-radius: 2.1vh;
             text-align: center;
             justify-content: center;
             margin: 0vh 2vw 5vh 2vw;
-            padding-top: 1vh;
+            padding: 4vh 2vw 0vh 0vw;
+        }
+
+        .jobName {
+            padding-left: 2vw;
+        }
+
+        .jobName input {
+            border-radius: 0.69vh;
+            border: none;
         }
 
         .jobInfo {
-            text-align: left;
+            text-align: center;
             padding: 1vh 1vw 1vh 2.35vw;
         }
 
@@ -276,12 +323,21 @@
             color: #00ff00;
         }
 
+        .jobInfo input {
+            background-color: #ffffff;
+            color: var(--clr1);
+            border: none;
+            border-radius: 0.69vh;
+            width: 8.5vw;
+        }
+
         /* No more Unwanted Stuff */
 
 
         .pfp {
-            width: 5vw;
-            height: 11vh;
+            width: 6vw;
+            height: 12vh;
+            margin: 1vh 2vw 1vh 4vw;
         }
 
         .jobName a {
@@ -295,42 +351,113 @@
             color: #00ffaa;
         }
 
-         @media screen and (max-width: 768px) {
+        .newJob {
+            margin: 0vh 0vw 2vh 0vw;
+            text-align: right;
+            font-size: 6vh;
+        }
+
+        .newJob button {
+            transition: 0.5s;
+            color: #ffffff;
+            background-color: #3939ba;
+            border-radius: 2.1vh;
+            border: none;
+            width: 4vw;
+            height: 8vh;
+        }
+
+        .newJob button:hover {
+            transition: 0.5s;
+            opacity: 0.85;
+
+        }
+
+        .newJob button a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        .jobInput {
+            width: 7.5vw;
+            color: var(--clr1);
+        }
+
+        .main {
+            text-align: center;
+        }
+
+        .submit .submitBtn {
+            color: #ffffff;
+            background-color: #3939ba;
+            border-radius: 1vh;
+            border: none;
+        }
+
+        .submit .submitBtn a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        .jobDesc {
+            margin: 5vh 0vw 2vh 0vw;
+        }
+
+        .jobDesc textarea {
+            background-color: var(--clr1);
+            color: var(--clr2);
+            border: none;
+            border-radius: 2.1vh;
+        }
+
+        @media screen and (max-width: 768px) {
             .jobCard {
-                width: 50vw;
-                height: 55vh;
-                margin-left: 15vw;
+                width: 60vw;
+                height: 57vh;
+                margin-left: 5vw;
                 font-size: 2.5vh;
                 align-self: center;
                 justify-content: center;
                 padding: 3vh 1vw 3vh 1vw;
-                float: none;
             }
 
             .jobInfo {
-                margin-left: 3vw;
+                margin: 2vh 0vw 5vh 2vw;
             }
 
             .pfp {
                 width: 20vw;
                 height: 11vh;
             }
+
+            .jobInfo .jobInput {
+                width: 36vw;
+                color: var(--clr1);
+            }
+
+            .jobName .jobInput {
+                width: 36vw;
+            }
+
         }
-     </style>
-     <!-- Code -->
+
+    </style>
+    <!-- Code -->
+
+    <link rel="stylesheet" href="ProfilePageReal.css">
 
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-        <title>Jobs</title>
+        <title>Create Job</title>
     </head>
-    <body style="height: 100vh;">
+
+    <body style="height: 100vh; width: 100vw;">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-
-         <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding-top: 1.0445682451253482vh;">
+        <!-- Navbar Start-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding-top: 1.0445682451253482vh;">
                 <div class="container-fluid">
                     <a style= class="navbar-brand" href="#">
       <img style = "height:13vh; width:10vw"src="https://media.discordapp.net/attachments/925686709490946059/929090970388135976/LOGO-1.png" alt="" width="30" height="24">
@@ -359,25 +486,37 @@
                             </a>
                         </li>
                     </ul>
+
                 </nav>
-                <span onclick="openNav()"><ion-icon name="apps" class="icon_size"></ion-icon></span>
-                <!-- Navbar End-->
-                 <div id="main" class="main">
+            <span onclick="openNav()"><ion-icon name="apps" class="icon_size"></ion-icon></span>
+            <!-- Navbar End-->
+            <div id="main" class="main">
                 <div class="container-fluid align-middle">
-                  <div id="content" class="userPost">
-                            <button id="createJobBtn" type="button">
-                                <a href="/CreateJob">
-                                    <ion-icon name="add"></ion-icon><b></b>
-                                </a>
-                            </button>
+                    <center>
+                        <div class="jobCard">
+                            <h5 class="jobName"><a href="#"><ion-icon name="briefcase" class="myIcon"></ion-icon> - <input id="jobname" class="jobInput" type="text" placeholder=" Job Name"></a></h5>
+
+                            <div class="jobInfo">
+                                <p class="jobClient"><b><ion-icon name="person-circle" class="myIcon"></ion-icon> - <i>User's Name (Defaulted)</i></b></p>
+                                <p class="jobLocation"><b><ion-icon name="location" class="icon-size"></ion-icon> - <input id="joblocation" class="jobInput" type="text" placeholder=" Job Location"> </b></p>
+                                <p class="jobDays"><b><ion-icon name="calendar-number"></ion-icon> - <input id="jobdays" class="jobInput" type="number" placeholder=" Job Days (Num)"></b></p>
+                                <p class="jobPay"><b><ion-icon name="cash" class="icon-size"></ion-icon> - <input id="jobpay" class="jobInput" type="number" placeholder=" Job Pay (Num)"></b></p>
+                            </div>
                         </div>
-                    <!-- COPY FROM HERE -->
-                    <!-- COPY TILL HERE-->
+                        <h3>Describe the Job:</h3>
+                        <div class="jobDesc">
+                            <textarea id="jobdesc" class="descInput" placeholder=" Job Description" cols="85" rows="7"></textarea>
+                        </div>
+                    </center>
+                    <div class="submit">
+                        <button id="submit" class="submitBtn">
+                            Submit
+                        </button>
+                   </div>
                 </div>
             </div>
-
-         <!-- Navbar Start-->
-        <div id="realSideNav" class="sidenav">
+     <!-- Navbar Start-->
+     <div id="realSideNav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><ion-icon name="close-circle"></ion-icon></a>
             <a href="/About" class="link1"><b><ion-icon name="information-circle"></ion-icon> About</b></a>
             <a href="/Account" class="link2"><b><ion-icon name="person-circle" class="myIcon"></ion-icon> My Account</b></a>
@@ -385,7 +524,7 @@
             <hr class="solid">
             <a href="/Logout"><b><ion-icon name="log-out-outline" class="myIcon"></ion-icon> Logout</b></a>
         </div>
-    <!-- Navbar End-->
+
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -394,7 +533,7 @@
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script>
-              function getCookie(cname) {
+                      function getCookie(cname) {
   let name = cname + "=";
   let decodedCookie = decodeURIComponent(document.cookie);
   let ca = decodedCookie.split(';');
@@ -416,127 +555,90 @@
                   window.location.href= 'https://Sustainathon.leomessi0311.repl.co/Login'
                 }
             });
-             $.get('https://serversustainathon.leomessi0311.repl.co/GetUserData/' + getCookie('userid'), function(data, status){
-                        userData = JSON.parse(data)
-
-                        if(userData[0] == "Labourer")
-                        {
-                          document.getElementById('createJobBtn').style.display = "none";
-                        }
-                    });
-             $.get('https://serversustainathon.leomessi0311.repl.co/GetUserData/' + getCookie('userid'), function(data, status){
-                        userData = JSON.parse(data)
-                        var pref = JSON.parse(userData[5])
-                     $.post('https://ServerSustainathon.leomessi0311.repl.co/GetJobs',
-                    {
-                      radius:"40",
-                      lat:pref['lat'],
-                      long:pref['long']
-                    }, function(data, status){
-                      PostData = JSON.parse(data)
-                      for(var i = 0; i < PostData.length; i++)
-                      {
-                        PostDataMore = JSON.parse(PostData[i])
-                        JobLocation = JSON.parse(PostDataMore[2])
-                        document.getElementById('content').innerHTML += " <div class='jobCard'><h5 class='jobName'><ion-icon name='briefcase' class='myIcon'></ion-icon> - " + PostDataMore[0] + "</h5><div class='jobInfo'><p class='jobClient'><b><ion-icon name='person-circle' class='myIcon'></ion-icon> - " + PostDataMore[6] + "</b></p><p class='jobLocation'><b><ion-icon name='location' class='icon-size'></ion-icon> - " +JobLocation['location'] +"</b></p><p class='jobDays'><b><ion-icon name='calendar-number'></ion-icon> - " +PostDataMore[3]+ "</b></p><p class='jobPay'><b><ion-icon name='cash' class='icon-size'></ion-icon> - " +PostDataMore[4] +"</b></p><button class='btn' id='" + PostDataMore[5] + "'>View More</button></div></div>"
-                      }
-                      const btn = document.querySelectorAll('.btn');
-                      for (var i = 0; i < btn.length; i++) {
-                        btn[i].addEventListener('click', Event);
-                      }
-                    })
-              });
 
           })
-          function Event(event){
-            window.location.href = "https://Sustainathon.leomessi0311.repl.co/ViewJob?id=" + this.id
-          }
-            $("#link1").hover(function(){
-                console.log($(".navbar").css("background-color"))
-                $(this).css("background-color", "#818181")
-                $('#icon1').css("color", "rgb(248, 249, 250)")
-                $('#text1').css("color", "rgb(248, 249, 250)")
-            }, function(){
-                $(this).css("background-color", "rgb(248, 249, 250)")
-                $('#icon1').css("color", "#000000")
-                $('#text1').css("color", "#818181")
-            })
-            $("#link2").hover(function(){
-                console.log($(".navbar").css("background-color"))
-                $(this).css("background-color", "#818181")
-                $('#icon2').css("color", "rgb(248, 249, 250)")
-                $('#text2').css("color", "rgb(248, 249, 250)")
-            }, function(){
-                $(this).css("background-color", "rgb(248, 249, 250)")
-                $('#icon2').css("color", "#000000")
-                $('#text2').css("color", "#818181")
-            })
-            $("#link3").hover(function(){
-                console.log($(".navbar").css("background-color"))
-                $(this).css("background-color", "#818181")
-                $('#icon3').css("color", "rgb(248, 249, 250)")
-                $('#text3').css("color", "rgb(248, 249, 250)")
-            }, function(){
-                $(this).css("background-color", "rgb(248, 249, 250)")
-                $('#icon3').css("color", "#000000")
-                $('#text3').css("color", "#818181")
-            })
-            $("#link4").hover(function(){
-                console.log($(".navbar").css("background-color"))
-                $(this).css("background-color", "#818181")
-                $('#icon4').css("color", "rgb(248, 249, 250)")
-                $('#text4').css("color", "rgb(248, 249, 250)")
-            }, function(){
-                $(this).css("background-color", "rgb(248, 249, 250)")
-                $('#icon4').css("color", "#000000")
-                $('#text4').css("color", "#818181")
-            })
-            $("#link5").hover(function(){
-                console.log($(".navbar").css("background-color"))
-                $(this).css("background-color", "#818181")
-                $('#icon4').css("color", "rgb(248, 249, 250)")
-                $('#text4').css("color", "rgb(248, 249, 250)")
-            }, function(){
-                $(this).css("background-color", "rgb(248, 249, 250)")
-                $('#icon4').css("color", "#000000")
-                $('#text4').css("color", "#818181")
-            })
-            $("#link6").hover(function(){
-                console.log($(".navbar").css("background-color"))
-                $(this).css("background-color", "#818181")
-                $('#icon4').css("color", "rgb(248, 249, 250)")
-                $('#text4').css("color", "rgb(248, 249, 250)")
-            }, function(){
-                $(this).css("background-color", "rgb(248, 249, 250)")
-                $('#icon4').css("color", "#000000")
-                $('#text4').css("color", "#818181")
-            })
-            function onlyDigits(s) {
-            for (let i = s.length - 1; i >= 0; i--) {
-                const d = s.charCodeAt(i);
-                if (d < 48 || d > 57) return false
+          $('#submit').click(function(){
+            if(document.getElementById('jobname').value == null || document.getElementById('jobname').value.length == 0)
+            {
+              swal({
+                        title: "Enter all fields",
+                        icon: "warning",
+                    })
             }
-            return true
+            else
+            {
+               if(document.getElementById('jobdays').value == null || document.getElementById('jobdays').value.length == 0)
+            {
+                  swal({
+                        title: "Enter all fields",
+                        icon: "warning",
+                    })
             }
-            $("#navitem1").hover(function(){
-                $(this).css("background-color", "#818181")
-                $('#icon1').css("color", "rgb(248, 249, 250)")
-                $('#text1').css("color", "rgb(248, 249, 250)")
-            }, function(){
-                $(this).css("background-color", "rgb(248, 249, 250)")
-                $('#icon1').css("color", "#000000")
-                $('#text1').css("color", "#818181")
-            })
-            $("#navitem2").hover(function(){
-                $(this).css("background-color", "#818181")
-                $('#icon2').css("color", "rgb(248, 249, 250)")
-                $('#text2').css("color", "rgb(248, 249, 250)")
-            }, function(){
-                $(this).css("background-color", "rgb(248, 249, 250)")
-                $('#icon2').css("color", "#000000")
-                $('#text2').css("color", "#818181")
-            })
+            else
+            {
+              if(document.getElementById('jobpay').value == null || document.getElementById('jobpay').value.length == 0)
+            {
+                  swal({
+                        title: "Enter all fields",
+                        icon: "warning",
+                    })
+            }
+            else
+            {
+              if(document.getElementById('jobdesc').value == null || document.getElementById('jobdesc').value.length == 0)
+            {
+                  swal({
+                        title: "Enter all fields",
+                        icon: "warning",
+                    })
+            }
+            else
+            {
+                         $.get("https://eu1.locationiq.com/v1/search.php?key=pk.314111a95af34b5db65280b276f03f3d&q=" + document.getElementById('joblocation').value+ "&format=json", function(data, status){
+                                            var index = 0;
+                        for(var i = 0; i < data.length; i++)
+                        {
+                          if(data[i]['importance'] > data[index]['importance'])
+                          {
+                            index = i;
+                          }
+                        }
+
+                         $.post('https://serversustainathon.leomessi0311.repl.co/AddJob', {
+                                "userid":getCookie('userid'),
+                                "id":getCookie('login'),
+                                "lat":data[index]['lat'],
+                                "long":data[index]['lon'],
+                                "location":data[index]['display_name'],
+                                "desc":document.getElementById('jobdesc').value,
+                                "days":document.getElementById('jobdays').value,
+                                "pay":document.getElementById('jobpay').value,
+                                "title":document.getElementById('jobname').value,
+                              }, function(data2, status){
+                                   swal({
+                                title: "Success",
+                                text:"Job added",
+                                icon: "success",
+                            })
+                            .then((value2)=>{
+                               window.location.href = 'https://sustainathon.leomessi0311.repl.co/'
+                              });
+                            })
+
+                })
+                .fail(function(reponse){
+                  swal({
+                                title: "Please enter another location",
+                                icon: "warning",
+                  });
+                });
+            }
+            }
+            }
+            }
+          })
             $("#navitem3").hover(function(){
+                console.log($(".navbar").css("background-color"))
                 $(this).css("background-color", "#818181")
                 $('#icon3').css("color", "rgb(248, 249, 250)")
                 $('#text3').css("color", "rgb(248, 249, 250)")
@@ -546,6 +648,7 @@
                 $('#text3').css("color", "#818181")
             })
             $("#navitem4").hover(function(){
+                console.log($(".navbar").css("background-color"))
                 $(this).css("background-color", "#818181")
                 $('#icon4').css("color", "rgb(248, 249, 250)")
                 $('#text4').css("color", "rgb(248, 249, 250)")
@@ -563,18 +666,17 @@
                 $('#icon5').css("color", "#000000")
                 $('#text5').css("color", "#818181")
             })
+        </script>
+        <script>
             function openNav() {
-                document.getElementById("realSideNav").style.width = "30vh";
+                document.getElementById("realSideNav").style.width = "16.276041666666668vw";
                 document.getElementById("main").style.marginLeft = "16.276041666666668vw";
-                document.getElementById("main").style.opacity = "0.25";
             }
 
             function closeNav() {
                 document.getElementById("realSideNav").style.width = "0";
                 document.getElementById("main").style.marginLeft = "0";
-                document.getElementById("main").style.opacity = "1";
             }
         </script>
-
     </body>
 </html>

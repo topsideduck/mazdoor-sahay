@@ -66,7 +66,7 @@
             transition: 0.3s;
             align-self: center;
         }
-        
+
         .sidenav a:hover:not(.closebtn) {
             box-sizing: content-box;
             background-color: var(--clr2);
@@ -168,33 +168,6 @@
 .menu-border {
     padding: 0.6963788300835655vh;
 }
- .userPost {
-            text-align: right;
-        }
-        
-        .userPost button {
-            transition: 0.5s;
-            color: #ffffff;
-            background-color: #3939ba;
-            border-radius: 2.1vh;
-            border: none;
-        }
-
-        .userPost button:hover {
-            transition: 0.5s;
-            opacity: 0.85;
-
-        }
-
-        .userPost button a {
-            text-decoration: none;
-            color: #ffffff;
-        }
-
-        .userPost button a ion-icon {
-            font-size: 5vh;
-            padding: 1vh 0vw 0vh 0vw;
-        }
 
 .card {
     box-shadow: 0 0.5571030640668524vh 0.5208333333333334vw 0 #242424;
@@ -202,21 +175,17 @@
     margin: auto;
     text-align: center;
     position: relative;
-
 }
-  @media screen and (max-width: 50vw) {
-            .sidenav {
-                padding-top: 2.0891364902506964vh;
-            }
-            .sidenav a {
-                font-size: 0.25069637883008355vh;
-            }
+
+
+        .pfp {
+            width: 5vw;
+            height: 11vh;
+            border-radius: 2.1vh;
+            margin-top: 2vh;
         }
 
-        /* Jobs Card */
-
-        .jobCard {
-            box-shadow: 0 0.5571030640668524vh 1.1142061281337048vh 0 rgba(0, 0, 0, 0.2);
+        .jobReqCard {
             color: var(--clr2);
             float: left;
             background-color: var(--clr1);
@@ -226,62 +195,7 @@
             text-align: center;
             justify-content: center;
             margin: 0vh 2vw 5vh 2vw;
-            padding-top: 1vh;
-        }
-
-        .jobInfo {
-            text-align: left;
-            padding: 1vh 1vw 1vh 2.35vw;
-        }
-
-        /* Unwanted Fancy Job Stuff */
-
-        .jobClient {
-            transition: 0.5s;
-            color: var(--clr2);
-        }
-
-        .jobClient:hover {
-            transition: 0.5s;
-            color: #ff0000;
-        }
-
-        .jobLocation {
-            transition: 0.5s;
-            color: var(--clr2);
-        }
-
-        .jobLocation:hover {
-            transition: 0.5s;
-            color: #ffff00;
-        }
-
-        .jobDays {
-            transition: 0.5s;
-            color: var(--clr2);
-        }
-
-        .jobDays:hover {
-            transition: 0.5s;
-            color: #00ccff;
-        }
-
-        .jobPay {
-            transition: 0.5s;
-            color: var(--clr2);
-        }
-
-        .jobPay:hover {
-            transition: 0.5s;
-            color: #00ff00;
-        }
-
-        /* No more Unwanted Stuff */
-
-
-        .pfp {
-            width: 5vw;
-            height: 11vh;
+            padding-top: 2vh;
         }
 
         .jobName a {
@@ -291,14 +205,124 @@
         }
 
         .jobName a:hover {
-            transition: 0.5s;
             color: #00ffaa;
         }
 
-         @media screen and (max-width: 768px) {
-            .jobCard {
+        .jobLink {
+            transition: 0.5s;
+            text-decoration: none;
+            color: var(--clr2);
+        }
+
+        .jobLink:hover {
+            color: #00d9ff;
+        }
+
+        .jobAcc a {
+            transition: 0.5s;
+            color: var(--clr2);
+            text-decoration: none;
+        }
+
+        .jobAcc a:hover {
+            color: #00d9ff;
+        }
+
+        .jobInfo {
+            padding: 2vh 2vw 2vh 2vw
+        }
+
+        .yayBtn {
+            transition: 0.5s;
+            background-color: #00ff00;
+            color: #222327;
+            border: none;
+            border-radius: 1vh;
+        }
+
+        .yayBtn:hover {
+            color: #ffffff;
+            background-color: #006400;
+        }
+
+        @media screen and (max-width: 768px) {
+            .jobReqCard {
                 width: 50vw;
-                height: 55vh;
+                height: 43vh;
+                margin-left: 15vw;
+                font-size: 2.5vh;
+                align-self: center;
+                justify-content: center;
+                padding: 3vh 1vw 3vh 1vw;
+            }
+
+            .pfp {
+                width: 20vw;
+                height: 11vh;
+            }
+        }
+        .pfp {
+            width: 5vw;
+            height: 11vh;
+            border-radius: 2.1vh;
+            margin-top: 2vh;
+        }
+
+        .jobReqCard {
+            color: var(--clr2);
+            float: left;
+            background-color: var(--clr1);
+            height: 40vh;
+            width: 12vw;
+            border-radius: 2.1vh;
+            text-align: center;
+            justify-content: center;
+            margin: 0vh 2vw 5vh 2vw;
+            padding-top: 2vh;
+        }
+
+        .jobName a {
+            transition: 0.5s;
+            text-decoration: none;
+            color: var(--clr2);
+        }
+
+        .jobName a:hover {
+            color: #00ffaa;
+        }
+
+        .jobReqUser a {
+            transition: 0.5s;
+            color: var(--clr2);
+            text-decoration: none;
+        }
+
+        .jobReqUser a:hover {
+            color: #00d9ff;
+        }
+
+        .jobInfo {
+            padding: 2vh 2vw 2vh 2vw
+        }
+
+        .reqAccBtn {
+            transition: 0.5s;
+            background-color: #aaff00;
+            color: #222327;
+            border: none;
+            border-radius: 1vh;
+        }
+
+        .reqAccBtn:hover {
+            color: #ffffff;
+            background-color: #006400;
+        }
+
+        @media screen and (max-width: 768px) {
+
+            .jobReqCard {
+                width: 50vw;
+                height: 43vh;
                 margin-left: 15vw;
                 font-size: 2.5vh;
                 align-self: center;
@@ -307,15 +331,13 @@
                 float: none;
             }
 
-            .jobInfo {
-                margin-left: 3vw;
-            }
-
             .pfp {
                 width: 20vw;
                 height: 11vh;
             }
         }
+
+
      </style>
      <!-- Code -->
 
@@ -324,13 +346,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-        <title>Jobs</title>
+        <title>Job Updates</title>
     </head>
     <body style="height: 100vh;">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 
-         <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding-top: 1.0445682451253482vh;">
+           <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding-top: 1.0445682451253482vh;">
                 <div class="container-fluid">
                     <a style= class="navbar-brand" href="#">
       <img style = "height:13vh; width:10vw"src="https://media.discordapp.net/attachments/925686709490946059/929090970388135976/LOGO-1.png" alt="" width="30" height="24">
@@ -362,22 +384,16 @@
                 </nav>
                 <span onclick="openNav()"><ion-icon name="apps" class="icon_size"></ion-icon></span>
                 <!-- Navbar End-->
-                 <div id="main" class="main">
-                <div class="container-fluid align-middle">
-                  <div id="content" class="userPost">
-                            <button id="createJobBtn" type="button">
-                                <a href="/CreateJob">
-                                    <ion-icon name="add"></ion-icon><b></b>
-                                </a>
-                            </button>
-                        </div>
+                <div id="main" class="main">
+                <div id="content" class="container-fluid align-middle">
                     <!-- COPY FROM HERE -->
-                    <!-- COPY TILL HERE-->
+
                 </div>
             </div>
 
+
          <!-- Navbar Start-->
-        <div id="realSideNav" class="sidenav">
+         <div id="realSideNav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><ion-icon name="close-circle"></ion-icon></a>
             <a href="/About" class="link1"><b><ion-icon name="information-circle"></ion-icon> About</b></a>
             <a href="/Account" class="link2"><b><ion-icon name="person-circle" class="myIcon"></ion-icon> My Account</b></a>
@@ -416,40 +432,66 @@
                   window.location.href= 'https://Sustainathon.leomessi0311.repl.co/Login'
                 }
             });
-             $.get('https://serversustainathon.leomessi0311.repl.co/GetUserData/' + getCookie('userid'), function(data, status){
-                        userData = JSON.parse(data)
-
-                        if(userData[0] == "Labourer")
-                        {
-                          document.getElementById('createJobBtn').style.display = "none";
-                        }
-                    });
-             $.get('https://serversustainathon.leomessi0311.repl.co/GetUserData/' + getCookie('userid'), function(data, status){
-                        userData = JSON.parse(data)
-                        var pref = JSON.parse(userData[5])
-                     $.post('https://ServerSustainathon.leomessi0311.repl.co/GetJobs',
+            $.get('https://serversustainathon.leomessi0311.repl.co/GetUserData/' + getCookie('userid'), function(data, status){
+                 UserData = JSON.parse(data)
+                 if(UserData[0] == "Contractor"){
+                   $.post("https://ServerSustainathon.leomessi0311.repl.co/ContractJobUpdates", {
+                     cid:getCookie('userid'),
+                   }, function(data, status){
+                     PostData = JSON.parse(data)
+                    for(var i = 0; i < PostData.length; i++)
                     {
-                      radius:"40",
-                      lat:pref['lat'],
-                      long:pref['long']
-                    }, function(data, status){
-                      PostData = JSON.parse(data)
-                      for(var i = 0; i < PostData.length; i++)
+                      if(PostData[i][2] == "0")
                       {
-                        PostDataMore = JSON.parse(PostData[i])
-                        JobLocation = JSON.parse(PostDataMore[2])
-                        document.getElementById('content').innerHTML += " <div class='jobCard'><h5 class='jobName'><ion-icon name='briefcase' class='myIcon'></ion-icon> - " + PostDataMore[0] + "</h5><div class='jobInfo'><p class='jobClient'><b><ion-icon name='person-circle' class='myIcon'></ion-icon> - " + PostDataMore[6] + "</b></p><p class='jobLocation'><b><ion-icon name='location' class='icon-size'></ion-icon> - " +JobLocation['location'] +"</b></p><p class='jobDays'><b><ion-icon name='calendar-number'></ion-icon> - " +PostDataMore[3]+ "</b></p><p class='jobPay'><b><ion-icon name='cash' class='icon-size'></ion-icon> - " +PostDataMore[4] +"</b></p><button class='btn' id='" + PostDataMore[5] + "'>View More</button></div></div>"
+                        console.log(PostData[i])
+                        document.getElementById('content').innerHTML += "<div class='jobReqCard'><h5 class='jobName'><a href='https://Sustainathon.leomessi0311.repl.co/ViewJob?id=" + PostData[i][0] + "'><ion-icon name='briefcase' class='myIcon'></ion-icon> - " +PostData[i][4] +  "</a></h5> <b><i>Requested By - </i></b><div class='jobInfo'> <p class='jobReqUser'><b><a href='https://Sustainathon.leomessi0311.repl.co/Profile?id=" +PostData[i][1] + "' class='reqUserName'><i>" +PostData[i][3] +  "</i></a></b></p> <button class='btn2' id='" +PostData[i][0] +"-"+ PostData[i][1] +  "' type='button' class='reqAccBtn'><b>Accept</b></button></div></div>"
                       }
-                      const btn = document.querySelectorAll('.btn');
+                    }
+                    const btn = document.querySelectorAll('.btn2');
                       for (var i = 0; i < btn.length; i++) {
                         btn[i].addEventListener('click', Event);
                       }
-                    })
-              });
-
+                   })
+                 }
+                 else
+                {
+                  $.post('https://ServerSustainathon.leomessi0311.repl.co/LabourerJobUpdates',
+                  {
+                    userid:getCookie('userid')
+                  }
+                  , function(data, status){
+                    PostData = JSON.parse(data)
+                    for(var i = 0; i < PostData.length; i++)
+                    {
+                      if(PostData[i][1] == "0")
+                      {
+                        document.getElementById('content').innerHTML += " <div class='jobReqCard'><h5 class='jobName'><a href='https://Sustainathon.leomessi0311.repl.co/ViewJob?id=" + PostData[i][0] + "'><ion-icon name='briefcase' class='myIcon'></ion-icon> - " +PostData[i][2] + "</a></h5><b>Your Job Request is pending By: <br></b><div class='jobInfo'> <p class='jobAcc'><b><a href='https://Sustainathon.leomessi0311.repl.co/Profile?id=" +PostData[i][4] +  "' class='reqUserName'><i>" +PostData[i][3] +  "</i></a></b></p> <button type='button' class='yayBtn' disabled><b>Pending...</b></button></div></div>"
+                      }
+                      else if(PostData[i][1] == "1")
+                      {
+                        document.getElementById('content').innerHTML += " <div class='jobReqCard'><h5 class='jobName'><a href='https://Sustainathon.leomessi0311.repl.co/ViewJob?id=" + PostData[i][0] + "'><ion-icon name='briefcase' class='myIcon'></ion-icon> - " +PostData[i][2] + "</a></h5><b>Your Job Request was Accepted By: <br></b><div class='jobInfo'> <p class='jobAcc'><b><a href='https://Sustainathon.leomessi0311.repl.co/Profile?id=" +PostData[i][4] +  "' class='reqUserName'><i>" +PostData[i][3] +  "</i></a></b></p> <button type='button' class='yayBtn' ><b>Yay!</b></button></div></div>"
+                      }
+                    }
+                  })
+                }
+                });
           })
           function Event(event){
-            window.location.href = "https://Sustainathon.leomessi0311.repl.co/ViewJob?id=" + this.id
+            console.log(this.id)
+            const y = this.id.split("-")
+            console.log(y)
+                    $.post('https://ServerSustainathon.leomessi0311.repl.co/UpdateJob', {
+                            jobid:y[0],
+                            userid:y[1],
+                          }, function(data, status){
+                              swal({
+                                title: "Success",
+                                text:"You have accepeted the person!",
+                                icon: "success",
+                            }).then((value)=>{
+                              window.location.href = "https://Sustainathon.leomessi0311.repl.co/JobUpdates"
+                            })
+                          })
           }
             $("#link1").hover(function(){
                 console.log($(".navbar").css("background-color"))
@@ -563,6 +605,7 @@
                 $('#icon5').css("color", "#000000")
                 $('#text5').css("color", "#818181")
             })
+
             function openNav() {
                 document.getElementById("realSideNav").style.width = "30vh";
                 document.getElementById("main").style.marginLeft = "16.276041666666668vw";

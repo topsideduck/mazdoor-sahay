@@ -1,13 +1,181 @@
 <!doctype html>
 <html lang="en">
-  <style>
-    .kys {
-      width: 50vw;
-      height: 95vh;
-      border-radius: 2.1vh;
-      
-    }
-  </style>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+     <style>
+         :root {
+            --clr1: #222327;
+            --clr2: #c0c0c0;
+            --indicator_height: 9.749303621169917vh;
+            --indicator_width: 10.724233983286908vw;
+        }
+
+        /* navbar Bar */
+
+        :root {
+            --clr1: #222327;
+            --clr2: #c0c0c0;
+            --indicator_height: 9.749303621169917vh;
+            --indicator_width: 10.724233983286908vh;
+        }
+
+        .pfp {
+            border-radius: 7.8125vw;
+            padding: 0.52083333333333vw;
+        }
+
+        .profile_details {
+            text-align: left;
+            align-self: center;
+            font-size: 2.5vh;
+        }
+
+        .icon_size {
+            padding-top:1.5vh;
+            padding-left: 0.65vw;
+            font-size: 10vh;
+        }
+
+        hr.solid {
+            border-top: 0.4178272980501393vh solid #5c5c5c;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: var(--clr1);
+            overflow-x: hidden;
+            padding-top: 8.356545961002785vh;
+            transition: 0.5s;
+            border-top-right-radius: 2.0891364902506964vh;
+            border-bottom-right-radius: 2.0891364902506964vh;
+        }
+
+        .sidenav a {
+            padding: 1.1142061281337048vh 0.5208333333333334vw 1.1142061281337048vh 2.0833333333333335vw;
+            text-decoration: none;
+            font-size: 3.5vh;
+            color: var(--clr2);
+            display: block;
+            transition: 0.3s;
+            align-self: center;
+        }
+
+        .sidenav a:hover:not(.closebtn) {
+            box-sizing: content-box;
+            background-color: var(--clr2);
+            color: var(--clr1);
+            border-radius: 2.1vh;
+            transition: 0.25s;
+        }
+
+        .sidenav .closebtn:hover {
+            color: #FE7D6E;
+            transition: 0.5s;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 1.6276041666666667vw;
+            font-size: 4.25vh;
+            margin-left: 2.25vw;
+        }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 9.749303621169917vh 7.128309572301426vw 9.749303621169917vh 7.128309572301426vw;
+        }
+
+        @media screen and (max-height: 62.674094707520894vh) {
+            .sidenav {padding-top: 2.0891364902506964vh;}
+            .sidenav a {font-size: 2.5069637883008355vh;}
+        }
+        :root {
+    --clr1: #222327;
+    --clr2: #c0c0c0;
+    --indicator_height: 9.749303621169917vh;
+    --indicator_width: 10.724233983286908vh;
+}
+.pfp {
+    border-radius: 7.8125vw;
+    padding: 0.52083333333333vw;
+}
+.profile_details {
+    text-align: left;
+    align-self: center;
+    font-size: 2.5vh;
+}
+.icon_size {
+    padding-top:1.5vh;
+    font-size: 5vh;
+}
+
+.navbar ul li  {
+    position: relative;
+    list-style: none;
+    width: 10vw;
+    height: 9vh;
+    z-index: 1;
+}
+.navbar ul li a {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+    color: var(--clr1);
+    text-decoration: none;
+}
+.navbar ul li a .icon {
+    padding-top:1.5vh;
+    position: relative;
+    display: block;
+    line-height: 6.2674094707520895vh;
+    font-size: 3.3426183844011144vh;
+    text-align: center;
+    transition: 0.5s;
+    color: var(--clr1);
+
+}
+.navbar ul li:hover a .icon {
+    transform: translateY(2.5vh);
+}
+.navbar ul li a .text {
+    position: absolute;
+    color: var(--clr1);
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 2.3vh;
+    letter-spacing: 0.11142061281337047vh;
+    transition: 0.75s;
+    opacity: 0;
+
+}
+.navbar ul li:hover a .text{
+    transform: translateY(-1.1vh);
+    opacity: 1;
+}
+.menu-border {
+    padding: 0.6963788300835655vh;
+}
+
+.card {
+    box-shadow: 0 0.5571030640668524vh 0.5208333333333334vw 0 #242424;
+    max-width: 50vh;
+    margin: auto;
+    text-align: center;
+    position: relative;
+}
+
+     </style>
 
     <head>
 
@@ -19,57 +187,42 @@
     </head>
     <body style="height: 100vh;">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light vw-100">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="Community.html">Community</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="ProfilePage.html">Profile</a>
-                </li>
-                <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                </li>
-            </ul>
-            <div class="nav-item"style="display:block">
-               <form class="d-flex my-2 my-lg-0">
-                <button class="btn btn-primary me-sm-2" style="color:white" ><a href="https://sustainathon.leomessi0311.repl.co/Login?" style="text-decoration: none;">Login</a></button>
-                <button class="btn btn-outline-primary my-2 my-sm-0" ><a href="https://sustainathon.leomessi0311.repl.co/Register?" style="text-decoration: none;">Register</a></button>
-            </form>
-            </div>
-             <div class="nav-item" style="display:none">
-              <div class="btn-group d-flex my-2 my-lg-0" style="display:none">
-              <button type="button" class="btn btn-success">My account</button>
-              <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              </button>
-              <div class="dropdown-menu">
-                <button class="dropdown-item" ></a>
-                <button class="dropdown-item" ></a>
-                <div class="dropdown-divider"></div>
-                <button class="dropdown-item" >Logout</a>
-              </div>
-            </div>
-            </div>
-        </div>
-        </nav>
-        <div class="row vw-100 g-0 justify-content-center d-flex" style="height: 90%;">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding-top: 1.0445682451253482vh;">
+                <div class="container-fluid">
+                    <a style= class="navbar-brand" href="#">
+      <img style = "height:13vh; width:10vw"src="https://media.discordapp.net/attachments/925686709490946059/929090970388135976/LOGO-1.png" alt="" width="30" height="24">
+    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li id="navitem3" style="transition: 0.5s" class="nav-item rounded-pill">
+                            <a href="/Community">
+                                <span id="icon3" class="icon"><ion-icon name="people"></ion-icon></span>
+                                <span id="text3" class="text"><b>Community</b></span>
+                            </a>
+                        </li>
+                        <li id="navitem4" style="transition: 0.5s" class="nav-item rounded-pill">
+                            <a href="/Jobs">
+                                <span id="icon4" class="icon"><ion-icon name="briefcase"></ion-icon></ion-icon></span>
+                                <span id="text4" class="text"><b>Jobs</b></span>
+                            </a>
+                        </li>
+                        <li id="navitem5" style="transition: 0.5s" class="nav-item rounded-pill">
+                            <a href="/Donations">
+                                <span id="icon5" class="icon"><ion-icon name="wallet"></ion-icon></ion-icon></span>
+                                <span id="text5" class="text"><b>Donate</b></span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="nav-item d-flex my-2 my-lg-0">
+                        <div class="loginornot" style="display: block;">
+                            <button id="loginBtn" class="btn btn-primary me-sm-2" style="color:white" >Login</button>
+                            <button id="regBtn" class="btn btn-outline-primary my-2 my-sm-0" >Register</button>
+                        </div>
+                    </div>
+                </nav>
         <div class="col-md col-sm align-items-center g-1">
             <p class="h1 text-center fw-bold mb-5 mx-1 mx-md-4 mt-4">Login</p>
             <ul class="nav nav-tabs flex-column flex-sm-row">
@@ -95,12 +248,6 @@
                     </label>
                 </div>
 
-                <div class="forgorpsw">
-                    <a href="#">
-                        Forgot <b>Password</b>?
-                    </a>
-                </div>
-
                 <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                     <button id='ContractorBtn' type="button" class="btn btn-primary btn-lg">
                         <b>Login</b>
@@ -123,12 +270,6 @@
                     </label>
                 </div>
 
-                <div class="forgorpsw">
-                    <a href="#">
-                        Forgor <b>Password</b>?
-                    </a>
-                </div>
-
                 <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                     <button id='LabourerBtn' type="button" class="btn btn-primary btn-lg">
                     <b>Login</b>
@@ -137,8 +278,6 @@
             </form>
         </div>
 
-        <div class="col-md col-sm align-items-center justify-content-center g-0"><img class="kys" src="https://c.tenor.com/C8MpzwDxl40AAAAM/ltg-low-tier-god.gif" alt="You Should Kill Yourself NOW!"></div>
-        </div>
 
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
@@ -167,10 +306,61 @@
           $.post('https://ServerSustainathon.leomessi0311.repl.co/ValidateLoginCookie', {loginid:getCookie('login')}, function(data, status){
             if(data=="Valid Cookie")
             {
-              window.location.href = "https://Sustainathon.leomessi0311.repl.co/Community"
+              window.location.href = "https://Sustainathon.leomessi0311.repl.co/Account"
             }
           });
         });
+        $('#loginBtn').click(function(){
+              window.location.href = 'https://Sustainathon.leomessi0311.repl.co/Login'
+            })
+            $('#regBtn').click(function(){
+              window.location.href = 'https://Sustainathon.leomessi0311.repl.co/Register'
+            })
+         $("#navitem1").hover(function(){
+                $(this).css("background-color", "#818181")
+                $('#icon1').css("color", "rgb(248, 249, 250)")
+                $('#text1').css("color", "rgb(248, 249, 250)")
+            }, function(){
+                $(this).css("background-color", "rgb(248, 249, 250)")
+                $('#icon1').css("color", "#000000")
+                $('#text1').css("color", "#818181")
+            })
+            $("#navitem2").hover(function(){
+                $(this).css("background-color", "#818181")
+                $('#icon2').css("color", "rgb(248, 249, 250)")
+                $('#text2').css("color", "rgb(248, 249, 250)")
+            }, function(){
+                $(this).css("background-color", "rgb(248, 249, 250)")
+                $('#icon2').css("color", "#000000")
+                $('#text2').css("color", "#818181")
+            })
+            $("#navitem3").hover(function(){
+                $(this).css("background-color", "#818181")
+                $('#icon3').css("color", "rgb(248, 249, 250)")
+                $('#text3').css("color", "rgb(248, 249, 250)")
+            }, function(){
+                $(this).css("background-color", "rgb(248, 249, 250)")
+                $('#icon3').css("color", "#000000")
+                $('#text3').css("color", "#818181")
+            })
+            $("#navitem4").hover(function(){
+                $(this).css("background-color", "#818181")
+                $('#icon4').css("color", "rgb(248, 249, 250)")
+                $('#text4').css("color", "rgb(248, 249, 250)")
+            }, function(){
+                $(this).css("background-color", "rgb(248, 249, 250)")
+                $('#icon4').css("color", "#000000")
+                $('#text4').css("color", "#818181")
+            })
+            $("#navitem5").hover(function(){
+                $(this).css("background-color", "#818181")
+                $('#icon5').css("color", "rgb(248, 249, 250)")
+                $('#text5').css("color", "rgb(248, 249, 250)")
+            }, function(){
+                $(this).css("background-color", "rgb(248, 249, 250)")
+                $('#icon5').css("color", "#000000")
+                $('#text5').css("color", "#818181")
+            })
         $('#ContractorLink').click(function(e){
             if($('#LabourerLink').css('color') == 'rgb(255, 255, 255)'){
                 document.getElementById("LabourerLink").style.color = "#0d6efd";
@@ -208,14 +398,14 @@
                 data2 = JSON.parse(data);
                 document.cookie = "login="+data2[1];
                 document.cookie = "userid="+data2[0];
-                window.location.href = "https://Sustainathon.leomessi0311.repl.co/Community";
+                window.location.href = "https://Sustainathon.leomessi0311.repl.co/Account";
           })
           .fail(function(response){
             swal(
                   {
                             title: "Warning!",
                             text: response.responseText,
-                            icon: "warning"   
+                            icon: "warning"
                   });
           });
         });
@@ -227,14 +417,14 @@
                 data2 = JSON.parse(data);
                 document.cookie = "login="+data2[1];
                 document.cookie = "userid="+data2[0];
-                window.location.href = "https://Sustainathon.leomessi0311.repl.co/Community";
+                window.location.href = "https://Sustainathon.leomessi0311.repl.co/Account";
           })
           .fail(function(response){
             swal(
                   {
                             title: "Warning!",
                             text: response.responseText,
-                            icon: "warning"   
+                            icon: "warning"
                   });
           });
         });

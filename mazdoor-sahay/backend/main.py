@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 import hashlib
 import json
 import logging
@@ -11,14 +9,15 @@ import mpu
 import mysql.connector
 import requests
 
-from colorama import Fore, Style
-from flask import Flask, request, jsonify
+from colorama import Fore, Style, init
+from flask import Flask, request
 from flask_cors import CORS
 from waitress import serve
 
-
 app = Flask(__name__)
 CORS(app)
+
+init(autoreset=True)
 
 
 # Logger custom formatter
@@ -69,8 +68,8 @@ logger.addHandler(f_handler)
 @app.after_request
 def Log(response):
     # info = str(request.environ['HTTP_X_FORWARDED_FOR']) + "==" + str(request.endpoint) + "==" + str(response.status)
-    # info = f"{str(request.environ['HTTP_X_FORWARDED_FOR'])} {str(request.endpoint)} {str(response.status)}"
-    # logging.info(info)
+    info = f"{str(request.environ['HTTP_X_FORWARDED_FOR'])} {str(request.endpoint)} {str(response.status)}"
+    logging.info(info)
     return response
 
 
@@ -459,8 +458,19 @@ def GetJobs():
                                       (float(Location['lat']), float(Location['long'])))
         if (dist <= int(request.form['radius'])):
             result.append(json.dumps(x))
-
     return json.dumps(result)
+
+
+@app.route('/GetJobsWithId/<id>')
+def GetJobsWithId(id):
+    mydb = mysql.connector.connect(host=os.environ['host'],
+                                   user=os.environ['user'],
+                                   password=os.environ['pass'],
+                                   database=os.environ['db'])
+    mycursor = mydb.cursor()
+    mycursor.execute("SELECT * FROM jobs WHERE JobID = '" + id + "'")
+    myresult = mycursor.fetchall()
+    return json.dumps(myresult)
 
 
 @app.route('/UpdateDonations', methods=['POST'])
@@ -487,20 +497,114 @@ def AddJob():
                                    user=os.environ['user'],
                                    password=os.environ['pass'],
                                    database=os.environ['db'])
-    sql = "INSERT INTO jobs (Title, Description, Location, Days, Pay,  JobID) VALUES (%s, %s, %s, %s, %s, %s)"
+    mycursor = mydb.cursor()
+    mycursor.execute("SELECT Name FROM users WHERE UserID = '" +
+                     request.form['userid'] + "'")
+    myresult = mycursor.fetchall()
+    sql = "INSERT INTO jobs (Title, Description, Location, Days, Pay,  JobID, Name, UserID) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
     Location = {
         "location": request.form['location'],
         "lat": request.form['lat'],
         "long": request.form['long'],
 
     }
-    Id = hashlib.sha256((request.form['id']).encode()).hexdigest()
+    Id = hashlib.sha256(((request.form['id']) + request.form['desc'] + request.form['title']).encode()).hexdigest()
+    print(request.form['userid'])
     val = (
-    request.form['title'], request.form['desc'], json.dumps(Location), request.form['days'], request.form['pay'], Id)
-    mycursor = mydb.cursor()
+    request.form['title'], request.form['desc'], json.dumps(Location), request.form['days'], request.form['pay'], Id,
+    myresult[0][0], request.form['userid'])
     mycursor.execute(sql, val)
     mydb.commit()
     return "success", 200
+
+
+@app.route('/AddJobP', methods=['POST'])
+def AddJobP():
+    mydb = mysql.connector.connect(host=os.environ['host'],
+                                   user=os.environ['user'],
+                                   password=os.environ['pass'],
+                                   database=os.environ['db'])
+    mycursor = mydb.cursor()
+    sql = "INSERT INTO jobp (UserID, Status, JobID, CreatorID, Name, JobName, CreatorName) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+    mycursor.execute("SELECT Name FROM users WHERE UserID = '" + request.form['userid'] + "'")
+    myresult = mycursor.fetchall()
+    mycursor.execute("SELECT Title FROM jobs WHERE JobID = '" + request.form['jobid'] + "'")
+    myresult2 = mycursor.fetchall()
+    mycursor.execute("SELECT Name FROM users WHERE UserID = '" + request.form['cid'] + "'")
+    myresult3 = mycursor.fetchall()
+    val = (request.form['userid'], "0", request.form['jobid'], request.form['cid'], myresult[0][0], myresult2[0][0],
+           myresult3[0][0])
+    mycursor.execute(sql, val)
+    mydb.commit()
+    return "success", 200
+
+
+@app.route('/CheckIfApplied', methods=['POST'])
+def CheckIfApplied():
+    mydb = mysql.connector.connect(host=os.environ['host'],
+                                   user=os.environ['user'],
+                                   password=os.environ['pass'],
+                                   database=os.environ['db'])
+    mycursor = mydb.cursor()
+    mycursor.execute(
+        "SELECT Status FROM jobp WHERE JobID = '" + request.form['jobid'] + "' AND UserID = '" + request.form[
+            'userid'] + "'")
+    myresult = mycursor.fetchall()
+    if not myresult:
+        return "false"
+    return "true"
+
+
+@app.route('/GetJobCreator', methods=['POST'])
+def GetJobCreator():
+    mydb = mysql.connector.connect(host=os.environ['host'],
+                                   user=os.environ['user'],
+                                   password=os.environ['pass'],
+                                   database=os.environ['db'])
+    mycursor = mydb.cursor()
+    mycursor.execute("SELECT UserID FROM jobs WHERE JobID = '" + request.form['jobid'] + "'")
+    myresult = mycursor.fetchall()
+    return json.dumps(myresult)
+
+
+@app.route('/ContractJobUpdates', methods=['POST'])
+def ContractJobUpdates():
+    mydb = mysql.connector.connect(host=os.environ['host'],
+                                   user=os.environ['user'],
+                                   password=os.environ['pass'],
+                                   database=os.environ['db'])
+    mycursor = mydb.cursor()
+    mycursor.execute(
+        "SELECT JobID, UserID, Status, Name, JobName FROM jobp WHERE CreatorID = '" + request.form['cid'] + "'")
+    myresult = mycursor.fetchall()
+    return json.dumps(myresult)
+
+
+@app.route('/UpdateJob', methods=['POST'])
+def UpdateJob():
+    mydb = mysql.connector.connect(host=os.environ['host'],
+                                   user=os.environ['user'],
+                                   password=os.environ['pass'],
+                                   database=os.environ['db'])
+    mycursor = mydb.cursor()
+    sql = "UPDATE jobp SET Status=%s WHERE JobID=%s AND UserID=%s"
+    val = ("1", request.form['jobid'], request.form['userid'])
+    mycursor.execute(sql, val)
+    mydb.commit()
+    return 'success', 200
+
+
+@app.route('/LabourerJobUpdates', methods=['POST'])
+def LabourerJobUpdates():
+    mydb = mysql.connector.connect(host=os.environ['host'],
+                                   user=os.environ['user'],
+                                   password=os.environ['pass'],
+                                   database=os.environ['db'])
+    mycursor = mydb.cursor()
+    mycursor.execute("SELECT JobID, Status,JobName, CreatorName, CreatorID FROM jobp WHERE UserID = '" + request.form[
+        'userid'] + "'")
+    myresult = mycursor.fetchall()
+    return json.dumps(myresult)
 
 
 if __name__ == "__main__":

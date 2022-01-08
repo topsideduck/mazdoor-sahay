@@ -1,6 +1,6 @@
-#!/usr/bin/env python3
-
 import logging
+
+import requests
 
 from colorama import Fore, Style
 from flask import Flask, render_template, request
@@ -60,8 +60,8 @@ logger.addHandler(f_handler)
 @app.after_request
 def Log(response):
     # info = str(request.environ['HTTP_X_FORWARDED_FOR']) + "==" + str(request.endpoint) + "==" + str(response.status)
-    # info = f"{str(request.environ['HTTP_X_FORWARDED_FOR'])} {str(request.endpoint)} {str(response.status)}"
-    # logging.info(info)
+    info = f"{str(request.environ['HTTP_X_FORWARDED_FOR'])} {str(request.endpoint)} {str(response.status)}"
+    logging.info(info)
     return response
 
 
@@ -115,5 +115,20 @@ def Jobs():
     return render_template('Jobs.html')
 
 
+@app.route('/CreateJob')
+def CreateJob():
+    return render_template('AddJobs.html')
+
+
+@app.route('/ViewJob')
+def ViewJob():
+    return render_template('ViewJob.html')
+
+
+@app.route('/JobUpdates')
+def JobUpdates():
+    return render_template('JobUpdates.html')
+
+
 if __name__ == "__main__":
-    serve(app, host='0.0.0.0', port=5002)
+    serve(app, host='0.0.0.0', port=5000)
